@@ -1,0 +1,86 @@
+{
+  "skill_name": "forge-app-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to build a Jira issue panel that shows related customer support tickets from an external API. It should appear on every issue and display a list of tickets with their status. Can you create the Forge app for me?",
+      "expected_output": "Agent creates a Forge app with a Jira issue panel module, writes working frontend and backend code, handles deployment, and interacts properly with the user throughout (asking for choices, not guessing).",
+      "files": [],
+      "expectations": [
+        "The app uses a Jira issue panel module type (not a different module like a page or global action)",
+        "The agent asks the user to choose a developer space rather than picking one automatically",
+        "The agent describes or provides frontend code/plan for rendering a list of tickets with their status",
+        "The agent describes or provides backend code/plan that fetches data from an external API (e.g. a resolver)",
+        "The agent asks the user for their Atlassian site URL before attempting installation",
+        "The agent does not ask the user for API tokens or credentials in the chat",
+        "The agent specifies or describes appropriate Jira scopes needed for the app to function",
+        "The agent verifies that prerequisite tools (Node.js, Forge CLI) are available before proceeding",
+        "The agent does not use @atlaskit/ imports in a UI Kit app",
+        "The agent plans to create the app using forge create (or equivalent script) rather than manually writing app files from scratch"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a Confluence macro that lets users embed an interactive chart. The macro should accept some configuration for chart type (bar, line, pie) and data source URL. Please set everything up as a Forge app.",
+      "expected_output": "Agent creates a Forge app with a Confluence macro module that accepts configuration parameters for chart type and data source URL, implements the chart rendering logic, and deploys the app.",
+      "files": [],
+      "expectations": [
+        "The app uses a Confluence macro module type",
+        "The macro accepts a configuration parameter for chart type (supporting bar, line, and pie)",
+        "The macro accepts a configuration parameter for data source URL",
+        "The agent asks the user to choose a developer space rather than picking one automatically",
+        "The agent describes or provides frontend code/plan for rendering a chart based on the configuration",
+        "The agent asks the user for their Atlassian site URL before attempting installation",
+        "The agent verifies prerequisite tools are available before proceeding",
+        "The agent specifies or describes appropriate Confluence scopes needed for the app",
+        "The agent plans to create the app using forge create (or equivalent script) rather than manually writing app files from scratch"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Can you create a Forge app that adds a dashboard gadget to Jira? I want it to show a summary of open issues grouped by priority. I already have forge installed and I'm logged in.",
+      "expected_output": "Agent creates a Jira dashboard gadget that fetches open issues and groups them by priority. Even though the user says prerequisites are installed, the agent still verifies before proceeding.",
+      "files": [],
+      "expectations": [
+        "The app uses a Jira dashboard gadget module type",
+        "The agent still verifies prerequisites even though the user claims they are already installed",
+        "The agent describes or provides backend code/plan that fetches Jira issues using JQL or the Jira REST API",
+        "The agent describes or provides a plan for grouping or categorizing issues by priority level",
+        "The agent asks the user to choose a developer space rather than picking one automatically",
+        "The agent asks the user for their Atlassian site URL before attempting installation",
+        "The agent specifies or describes a scope that allows reading Jira issues (e.g. read:jira-work)",
+        "The agent plans to create the app using forge create (or equivalent script) rather than manually writing app files from scratch"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I want to make a Confluence app that reads data from Jira issues and displays it on a Confluence page — like a cross-product integration. The Confluence macro should show a table of Jira issues assigned to the current user.",
+      "expected_output": "Agent creates a Confluence macro that integrates with Jira, including proper scopes for both products, and handles the cross-product deployment correctly.",
+      "files": [],
+      "expectations": [
+        "The app uses a Confluence macro module type",
+        "The agent specifies or describes both Confluence and Jira scopes since it's a cross-product app",
+        "The agent describes or provides backend code/plan that calls the Jira REST API to fetch issues assigned to the current user",
+        "The agent describes or provides frontend code/plan that displays issues in a table format",
+        "The agent recognizes and explains the cross-product nature of the app (needs access to both Jira and Confluence)",
+        "The agent asks the user to choose a developer space rather than picking one automatically",
+        "The agent asks the user for their Atlassian site URL before attempting installation",
+        "The agent plans to create the app using forge create (or equivalent script) rather than manually writing app files from scratch"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "forge create keeps failing with 'Prompts can not be meaningfully rendered'. I've been trying to create a jira-issue-panel-ui-kit app but it just won't work. Help!",
+      "expected_output": "Agent identifies the error and tells the user to run forge create in an interactive terminal. Does not try to manually scaffold the app or work around the error.",
+      "files": [],
+      "expectations": [
+        "The agent identifies the error as a known or expected issue (not something novel to debug)",
+        "The agent tells the user to run forge create in an interactive terminal as the primary solution",
+        "The agent does NOT attempt to manually create the app files as a workaround",
+        "The agent provides the correct forge create command with the template name for the user to run",
+        "The agent offers to help with customization and deployment after the user successfully creates the app",
+        "The agent does not ask the user for API tokens or credentials in the chat"
+      ]
+    }
+  ]
+}

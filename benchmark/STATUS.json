@@ -1,0 +1,8 @@
+{
+  "scope": "Table 2 repair tasks only",
+  "expected_tasks": 300,
+  "available_tasks": 300,
+  "missing_tasks": 0,
+  "complete": true,
+  "missing_by_state": {}
+}

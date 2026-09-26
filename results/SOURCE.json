@@ -1,0 +1,9 @@
+{
+  "source_filename": "unified_experiments_20260916_v1/RESULTS.json",
+  "source_sha256": "b7a8dd97e62f334dd98f1d54e6e0e7da6fde9f1bcf45d6cb6f11519cb1467f86",
+  "source_records": 21000,
+  "selection": "all rows with state != clean; no outcome-based filtering",
+  "export_records": 18000,
+  "export_tasks": 300,
+  "outcomes_sha256": "eeb3c73acaf4e733e186d9d454a0b9073ffea2f13e459cdf2c953a6a9a19049a"
+}

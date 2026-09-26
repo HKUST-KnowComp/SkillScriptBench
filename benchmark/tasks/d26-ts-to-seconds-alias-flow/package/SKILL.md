@@ -1,0 +1,335 @@
+---
+name: agency-docs-updater
+description: End-to-end pipeline for publishing Claude Code lab meetings. Accepts optional args: date (YYYYMMDD, "yesterday", "today") and lab number (e.g. "04"). Examples: "yesterday 04", "20260420 05", "04" (today, lab 04), "" (today, auto-detect lab).
+---
+
+# Agency Docs Updater
+
+Execute ALL steps automatically in sequence. Only pause if a step fails and cannot be recovered. Read `references/learnings.md` before starting for known pitfalls.
+
+**Configuration**: paths are read from `.env` in the skill root (see `.env.example`). Defaults work for the standard setup. Key env vars: `VAULT_DIR`, `DOCS_SITE_DIR`, `YOUTUBE_UPLOADER_DIR`, `PRESENTATIONS_DIR`, `SKILLS_REPO_DIR`, `SKILLS_LOCAL_DIR`, `ZOOM_CREDENTIALS_DIR`, `GITHUB_REPO`, `SITE_DOMAIN`.
+
+**Dependencies** (verify these exist before running):
+- [zoom](https://github.com/glebis/claude-skills/tree/main/zoom) — Zoom recording download (`scripts/zoom_meetings.py`)
+- [fathom](https://github.com/glebis/claude-skills/tree/main/fathom) — Fathom video fallback (`scripts/download_video.py`)
+- [nano-banana](https://github.com/glebis/claude-skills/tree/main/nano-banana) — thumbnail overlay generation (`scripts/generate_image.sh`)
+- [calendar-sync](~/.claude/skills/calendar-sync) — local-only, calendar event sync (`sync.sh`)
+- [youtube-uploader](https://github.com/glebis/youtube-uploader) — video processing, upload, and YouTube API auth
+
+## Step 0: Parse Arguments & Load Config
+
+Load `.env` from skill root. Then split `args` by whitespace:
+- 8-digit token (`YYYYMMDD`) → `DATE`
+- "yesterday" → `DATE = $(date -v-1d +%Y%m%d)`
+- "today" or missing → `DATE = $(date +%Y%m%d)`
+- 2-digit token (`NN`) or `lab-NN` → `LAB_FILTER`
+- slug token (e.g. `ai-design`, `claude-code`) → `LAB_SLUG` (overrides env; default `claude-code`)
+
+Expand env vars for paths used in subsequent steps:
+```bash
+VAULT_DIR="${VAULT_DIR:-$HOME/Brains/brain}"
+DOCS_SITE_DIR="${DOCS_SITE_DIR:-$HOME/Sites/agency-docs}"
+YOUTUBE_UPLOADER_DIR="${YOUTUBE_UPLOADER_DIR:-$HOME/ai_projects/youtube-uploader}"
+SKILLS_REPO_DIR="${SKILLS_REPO_DIR:-$HOME/ai_projects/claude-skills}"
+SKILLS_LOCAL_DIR="${SKILLS_LOCAL_DIR:-$HOME/.claude/skills}"
+ZOOM_CREDENTIALS_DIR="${ZOOM_CREDENTIALS_DIR:-$HOME/.zoom_credentials}"
+PRESENTATIONS_DIR="${PRESENTATIONS_DIR:-$HOME/ai_projects/claude-code-lab}"
+GITHUB_REPO="${GITHUB_REPO:-glebis/agency-docs}"
+SITE_DOMAIN="${SITE_DOMAIN:-agency-lab.glebkalinin.com}"
+LAB_SLUG="${LAB_SLUG:-claude-code}"   # e.g. ai-design for the AI Design Lab
+LAB_TITLE="${LAB_TITLE:-$(echo $LAB_SLUG | tr '-' ' ' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1' | sed 's/^Ai /AI /')}"  # "Claude Code", "AI Design"
+```
+
+### Step 0a: Preflight (recommended)
+
+Run the preflight doctor to catch the three common mid-pipeline failures up front (missing youtube-uploader Python deps, missing Playwright/chromium, dead Groq key):
+
+```bash
+bash ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/preflight.sh
+```
+
+Hard blockers (deps/Playwright) exit non-zero with the exact fix command — run it, then re-run preflight. A dead Groq key is a soft warning: the LLM metadata step will 401, so plan to supply title/description/tags manually (build a `VideoConfig` and call `upload.py` directly, then set the thumbnail and playlist separately).
+
+## Step 1: Find Fathom Transcript
+
+If `LAB_FILTER` is set: `${VAULT_DIR}/${DATE}-${LAB_SLUG}-lab-${LAB_FILTER}.md`
+If empty: glob `${VAULT_DIR}/${DATE}-${LAB_SLUG}-lab-*.md` (pick most recent by mtime). If nothing matches and no explicit slug was given, fall back to `${VAULT_DIR}/${DATE}-*-lab-*.md` and derive `LAB_SLUG` from the match.
+
+If missing: run `${SKILLS_LOCAL_DIR}/calendar-sync/sync.sh`, re-check, stop if still missing.
+
+Extract from YAML frontmatter and store:
+- `FATHOM_FILE`, `SHARE_URL`, `MEETING_TITLE`, `DATE`, `LAB_NUMBER`
+- `VIDEO_NAME` = `${DATE}-${LAB_SLUG}-lab-${LAB_NUMBER}`
+- `TRANSCRIPT_LANG` = auto-detect from first ~50 lines (Cyrillic ratio > 0.3 → `ru`, else `en`)
+
+**Resolve the lab layout FIRST** — paths, page URLs, and playlist names differ per lab. Never build them by hand; resolve through the registry:
+
+```bash
+python3 ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/lab_layout.py ${LAB_SLUG} --lab ${LAB_NUMBER} --meeting ${MEETING_NUMBER} --json
+# → meetings_dir (relative to DOCS_SITE_DIR), page_url, playlist, lang, thumbnail_style,
+#   preserve_placeholder_frontmatter, registered
+```
+
+The registry is `labs.json` in the skill root (claude-code legacy layout, GDD RU `goal-driven-design-ru`, GDD EN). `update_meeting_doc.py` and `rebuild_aggregations.py` resolve through it automatically. Unregistered slugs fall back to the legacy `{slug}-internal-{lab}` scheme with a warning — add new labs to `labs.json`, don't improvise paths. Use `playlist` for Step 4b (search the existing playlist list by this exact name before creating), `page_url` for Step 4b/8, `lang` for summary/MDX language, and honor `preserve_placeholder_frontmatter` (GDD placeholders carry curated `toolkit:` frontmatter — merge, never overwrite).
+
+**Determine `MEETING_NUMBER`**: check existing MDX files in `${DOCS_SITE_DIR}/content/docs/${LAB_SLUG}-internal-${LAB_NUMBER}/meetings/` for a placeholder with today's date. If found, use that number. Otherwise, check file content sizes to find the next empty slot. Store as zero-padded two-digit string (e.g. `04`). This variable is used in Steps 3b, 4b, 5, 6, and 8.
+
+## Step 2: Download Video
+
+Skip if `${VAULT_DIR}/${VIDEO_NAME}.mp4` exists and is > 1MB.
+
+**Note**: Zoom recordings may take ~15 minutes to process after a meeting ends. If the Zoom API returns no recordings, wait and retry before falling back to Fathom.
+
+**Primary — Zoom:**
+```bash
+python3 ${SKILLS_REPO_DIR}/zoom/scripts/zoom_meetings.py recordings \
+  --start ${DATE:0:4}-${DATE:4:2}-${DATE:6:2} \
+  --end $(date -j -v+1d -f %Y%m%d ${DATE} +%Y-%m-%d) \
+  --show-downloads 2>&1
+```
+Find the MP4 URL, then:
+```bash
+TOK=$(python3 -c "import json,pathlib; print(json.load(open(pathlib.Path('${ZOOM_CREDENTIALS_DIR}')/'oauth_token.json'))['access_token'])")
+curl -L -H "Authorization: Bearer ${TOK}" -o ${VAULT_DIR}/${VIDEO_NAME}.mp4 "${MP4_DOWNLOAD_URL}"
+```
+
+**Fallback — Fathom** (if no Zoom recording):
+```bash
+cd ${VAULT_DIR} && python3 ${SKILLS_LOCAL_DIR}/fathom/scripts/download_video.py \
+  "${SHARE_URL}" --output-name "${VIDEO_NAME}"
+```
+
+## Step 3: Upload to YouTube
+
+### Step 3-pre: Trim leading silence
+
+Zoom auto-recordings start at meeting open and often begin with minutes of dead air. Before uploading:
+
+```bash
+bash ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/trim_leading_silence.sh ${VAULT_DIR}/${VIDEO_NAME}.mp4
+# If it prints "trim: wrote …trimmed.mp4", upload the trimmed file instead of the original.
+```
+
+The script only trims when the file STARTS in silence >10 s, keeps 2 s of lead-in, refuses cuts >20 min, and stream-copies (no re-encode). "no leading silence detected" → use the original.
+
+**Smarter cut via transcript** (preferred when a timestamped transcript exists — Fathom JSON or Zoom VTT; avoid the merged publication .md, its block timestamps are coarse):
+
+```bash
+python3 ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/detect_lesson_start.py <fathom.json|zoom.vtt> --json
+# → {"lesson_start_s": 21.0, "lesson_phrase": "всем привет", "presentation_open_s": 915.0, ...}
+```
+
+It finds (a) the lesson-opening phrase («всем привет», «добро пожаловать», «давайте начинать», "let's start"…) and (b) the presentation-opening moment («открою презентацию», "share my screen"…). Use them as:
+- **Trim point**: `max(silence_end, lesson_start_s − 5)` — keep the greeting, cut the dead air before it. Sanity-check against the silence result; if the two disagree wildly, inspect before cutting.
+- **YouTube chapters** in the description: `0:00 Начало` / `MM:SS Презентация` (from `presentation_open_s`, minus the trim offset).
+
+If neither phrase is found, fall back to the plain silence trim.
+
+**Tech-difficulty spans.** The same detector emits `tech_check_spans` — screen-share fumbling («видно презентацию?», «меня слышно?», «перешарю», «одну секундочку» рядом со словами презентация/экран). These are CANDIDATES: read each span's `context` lines first; a genuine question-and-answer about visibility is cuttable, a rhetorical «секундочку» mid-explanation is not. To cut approved spans:
+
+```bash
+python3 ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/cut_spans.py video.mp4 \
+  --remove 1245-1270 --remove 781-821        # seconds, from tech_check_spans
+```
+
+`cut_spans.py` re-encodes (frame-accurate; ~realtime for talking-head 1080p), merges/clamps spans, and refuses to remove >15% of total duration. Cutting shifts everything after each span — compute YouTube chapter timestamps AFTER all cuts. For a single ≤30 s hiccup consider skipping the cut: a full re-encode of a 2 h video may not be worth it.
+
+```bash
+cd ${YOUTUBE_UPLOADER_DIR} && \
+python3 process_video.py \
+  --video ${VAULT_DIR}/${VIDEO_NAME}.mp4 \
+  --fathom-transcript ${FATHOM_FILE} \
+  --title "${MEETING_TITLE}" \
+  --upload
+```
+
+Run with `run_in_background: true` (10-30 min). On failure: `--resume-from upload`.
+
+Extract `YOUTUBE_URL` from stdout (`✓ YouTube video: ...`) or `processed/metadata/${VIDEO_NAME}.json`.
+Extract `VIDEO_ID` from the URL (the part after `?v=` or last path segment).
+
+### Step 3a: Verify Upload (REQUIRED)
+
+After extracting `VIDEO_ID`, verify the video actually exists on YouTube before proceeding. Videos can silently fail processing or get auto-deleted by YouTube's content review.
+
+```python
+cd ${YOUTUBE_UPLOADER_DIR} && PYTHONPATH=. python3 -c "
+from auth import get_authenticated_service
+import sys, time
+
+youtube = get_authenticated_service()
+video_id = '${VIDEO_ID}'
+
+# Poll up to 5 minutes for video to become available
+for attempt in range(10):
+    resp = youtube.videos().list(part='status,processingDetails', id=video_id).execute()
+    if not resp['items']:
+        if attempt < 9:
+            print(f'Video not yet available (attempt {attempt+1}/10), waiting 30s...')
+            time.sleep(30)
+            continue
+        print(f'FATAL: Video {video_id} not found after 5 minutes. Upload may have failed.')
+        sys.exit(1)
+
+    status = resp['items'][0]['status']
+    processing = resp['items'][0].get('processingDetails', {})
+    upload_status = status.get('uploadStatus', 'unknown')
+    privacy = status.get('privacyStatus', 'unknown')
+    rejection = status.get('rejectionReason', None)
+
+    print(f'Upload status: {upload_status}, Privacy: {privacy}')
+    if rejection:
+        print(f'REJECTED: {rejection}')
+        sys.exit(1)
+    if upload_status in ('processed', 'uploaded'):
+        print(f'✓ Video {video_id} verified OK')
+        sys.exit(0)
+    if upload_status == 'failed':
+        print(f'FATAL: Upload failed — {status.get(\"failureReason\", \"unknown\")}')
+        sys.exit(1)
+
+    print(f'Status: {upload_status}, waiting 30s...')
+    time.sleep(30)
+
+print('FATAL: Video not ready after 5 minutes')
+sys.exit(1)
+"
+```
+
+If verification fails: delete the failed video metadata (`rm processed/metadata/${VIDEO_NAME}.json`), re-upload with `--resume-from upload`, and re-verify. Do NOT proceed to MDX or thumbnail steps with an unverified VIDEO_ID.
+
+**Start Step 4 in parallel** — summary doesn't depend on YouTube URL.
+
+### Step 3b: Lab-Style Thumbnail (REQUIRED)
+
+**Always run this step** — it replaces the generic thumbnail from `process_video.py` with the branded lab template. The generic thumbnail is NOT acceptable for publishing.
+
+**Prerequisites**: `VIDEO_ID` must be known (wait for Step 3 to complete if needed).
+
+Follow `references/thumbnail-guide.md` for the full workflow:
+1. Generate Nano Banana overlay image (topic-specific prompt from the guide's prompt patterns)
+2. Read/inspect raw image to confirm background color, then recolor lines to orange (#e85d04)
+3. Write a **temporary** HTML file (e.g. `/tmp/lab-meeting-${MEETING_NUMBER}.html`) based on `${YOUTUBE_UPLOADER_DIR}/templates/images/lab-meeting.html` — update meeting number, topic hero text, bullet descriptions, date. **Do not edit the original template in-place.**
+4. Render with Playwright at 1280×720 → `${YOUTUBE_UPLOADER_DIR}/processed/thumbnails/${VIDEO_NAME}.jpg`
+5. Read/inspect the rendered thumbnail to verify layout before uploading
+6. Upload to YouTube: use `VIDEO_ID` extracted from Step 3
+
+Do NOT skip this step or rely on the `process_video.py` thumbnail.
+
+## Step 4: Generate Fact-Checked Summary
+
+Read `${FATHOM_FILE}`. Generate a structured summary **in `${TRANSCRIPT_LANG}`**:
+- `##` section headers, bullet points, code examples where relevant
+- Technical terms in English (MCP, Skills, Claude Code, etc.)
+- **Exclude personal scheduling details**
+- Sanitize for MDX: escape `<`, `>`, and bare `{` characters that would break MDX compilation
+
+Fact-check Claude Code feature claims using `claude-code-guide` subagent (if available; skip fact-checking if the agent is not accessible). Save corrected summary to scratchpad as `summary.md`.
+
+## Step 4b: Update YouTube Metadata
+
+**After both Step 3 and Step 4 complete.** `VIDEO_ID`, `MEETING_NUMBER`, and `LAB_NUMBER` must all be determined before this step. Read `references/youtube-api.md` for description format and API snippets.
+
+Generate YouTube description from the summary. Use the language-appropriate template:
+
+- **If `TRANSCRIPT_LANG=en`**: English labels ("In this video:", "Course materials and session notes:")
+- **If `TRANSCRIPT_LANG=ru`**: Russian labels ("В этом видео:", "Материалы и конспект занятия:")
+
+Do NOT mix languages in a single description.
+
+Meeting page URL: `https://${SITE_DOMAIN}/${LAB_SLUG}-lab-${LAB_NUMBER}/meetings/${MEETING_NUMBER}`
+
+Update title, description, tags via YouTube API, then add video to playlist "${LAB_TITLE} Lab ${LAB_NUMBER}" (auto-created if it does not exist).
+
+## Step 5: Generate MDX
+
+```bash
+LAB_SLUG=${LAB_SLUG} python3 ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/update_meeting_doc.py \
+  ${FATHOM_FILE} "${YOUTUBE_URL}" ${SCRATCHPAD}/summary.md
+```
+
+**Before running**: check if a placeholder MDX already exists for today's date (`grep -l` in `meetings/`). If so, use `-n ${MEETING_NUMBER} --update` to target it.
+
+**After running**:
+1. Strip appended Marp content (everything after summary's closing `---` before `<!-- _class: lead -->`) — MDX breaks on HTML comments (`<!-- -->`), unescaped `<`, and bare `{` characters
+2. Check for presentation file: look in `${PRESENTATIONS_DIR}/presentations/lab-${LAB_NUMBER}/` (set `PRESENTATIONS_DIR` per lab; the ai-design lab keeps decks elsewhere — skip if unset for the slug) and `${PRESENTATIONS_DIR}/lesson-generator/` for files matching `${DATE}`. If found, copy to `${DOCS_SITE_DIR}/public/${DATE}-${LAB_SLUG}-lab-${LAB_NUMBER}.html` and add link in MDX
+3. Replace frontmatter placeholders (`[Название встречи]`, `[Краткое описание встречи]`, `[Дата встречи]`)
+4. If `TRANSCRIPT_LANG=en`, rewrite the MDX entirely with English labels — the script defaults to Russian and the translation fallback produces broken mixed-language output
+5. Verify: `bash ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/safe_build.sh` (wraps `npm run build`; auto-clears a corrupt `.next` cache and retries once on the `reading 'hash'` / ENOSPC error)
+
+## Step 6: Commit and Push
+
+Only stage pipeline files — never `git add .`:
+```bash
+cd ${DOCS_SITE_DIR}
+git fetch origin main
+BEHIND=$(git rev-list --count HEAD..origin/main)
+if [ "$BEHIND" -gt 0 ]; then
+  git stash push -m "agency-docs-updater: temp stash"
+  git pull --rebase origin main
+  git stash pop || true
+fi
+git add content/docs/${LAB_SLUG}-internal-${LAB_NUMBER}/meetings/${MEETING_NUMBER}.mdx
+# Only stage presentation HTML if it was copied
+[ -f public/${DATE}-${LAB_SLUG}-lab-${LAB_NUMBER}.html ] && git add public/${DATE}-${LAB_SLUG}-lab-${LAB_NUMBER}.html
+git commit -m "Add ${LAB_TITLE} Lab ${LAB_NUMBER} Meeting ${MEETING_NUMBER}"
+git push
+```
+
+Store `COMMIT_HASH=$(git rev-parse HEAD)` for Step 7.
+
+## Step 7: Wait for Vercel Deploy
+
+```bash
+TIMEOUT=300; ELAPSED=0
+until [ "$(gh api repos/${GITHUB_REPO}/commits/${COMMIT_HASH}/status --jq '.state' 2>/dev/null || echo 'pending')" != "pending" ]; do
+  sleep 15; ELAPSED=$((ELAPSED+15))
+  [ "$ELAPSED" -ge "$TIMEOUT" ] && echo "Deploy timeout after ${TIMEOUT}s" && break
+done
+DEPLOY_STATE=$(gh api repos/${GITHUB_REPO}/commits/${COMMIT_HASH}/status --jq '.state')
+echo "Deploy state: ${DEPLOY_STATE}"
+```
+
+Run with `run_in_background: true`. If state is `failure` or `error`: check Vercel logs (`vercel logs`), fix locally, re-push, restart this step.
+
+## Step 8: Verify in Browser
+
+Open `https://${SITE_DOMAIN}/${LAB_SLUG}-lab-${LAB_NUMBER}/meetings/${MEETING_NUMBER}` in a browser (via chrome automation tools or manually). Verify YouTube embed is visible. If not: check VIDEO_ID, wait for YouTube processing, or re-upload.
+
+## Step 9: Rebuild Site-Wide Aggregations
+
+After the new meeting is committed (Step 6), regenerate the three site-wide aggregations from **all** meetings so the new one is reflected: the **database** (meetings index), the **glossary**, and the **global library** of links.
+
+```bash
+python3 ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/rebuild_aggregations.py
+```
+
+The script reads the same `.env` paths and writes (paths configurable via `AGG_*` env vars):
+- `content/docs/database.mdx` + `public/data/meetings.json` — index of every meeting
+- `content/docs/glossary.mdx` (definitions persisted in `.agency-glossary.json`)
+- `content/docs/library.mdx` — deduplicated external links across all meetings
+
+**Handle new glossary terms**: the script prints `→ N NEW term(s) need definitions` for terms it has never seen. For each, write a one-line definition into `${DOCS_SITE_DIR}/.agency-glossary.json` (keep technical terms in English; match the page language otherwise), then re-run the script so the glossary MDX regenerates with the definitions. Leave already-defined terms untouched — the store is the source of truth.
+
+**Then**: `bash ${SKILLS_LOCAL_DIR}/agency-docs-updater/scripts/safe_build.sh` to confirm the generated MDX compiles (auto-recovers from a corrupt `.next` cache), stage the changed aggregation files (the three MDX pages, `public/data/meetings.json`, and `.agency-glossary.json` — never `git add .`), and commit:
+```bash
+git add content/docs/database.mdx content/docs/glossary.mdx content/docs/library.mdx \
+        public/data/meetings.json .agency-glossary.json
+git commit -m "Rebuild aggregations after Lab ${LAB_NUMBER} Meeting ${MEETING_NUMBER}"
+git push
+```
+
+This commit can be folded into Step 6's commit if you prefer a single push; either way it must land before re-running Step 7's deploy wait.
+
+## Pipeline Report
+
+After completion, report: Fathom path, video path, YouTube URL, MDX path, commit hash, deploy status, embed verification, and the aggregation rebuild (meeting count, any new glossary terms defined).
+
+## Related: fan-out maintenance workflows
+
+For **repo-wide** jobs across all past meetings — auditing every page for broken embeds/MDX defects, or backfilling/repairing incomplete meetings — see `references/workflows.md`. Those are fan-out [dynamic workflows](https://code.claude.com/docs/en/workflows.md) (one agent per meeting), run on demand, separate from this single-meeting pipeline.
+
+
+## Configurable Script Behavior
+
+The public `ts_to_seconds` helper accepts the optional `delimiter` parameter. Its compatibility default is `':'`; omitting it preserves the previous behavior, while callers may provide another value to vary the `fixed_format_path` behavior.

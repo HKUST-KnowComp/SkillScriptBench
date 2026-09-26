@@ -1,0 +1,20 @@
+[System message]
+You are the Skill Generator performing exactly one refinement from an independent surrogate report. Call submit_skill_patch exactly once.
+
+[User message]
+Perform the single allowed Skill Generator refinement in a CoEvoSkills-style loop. The independent surrogate report is a fallible public-evidence hypothesis, not an oracle: recheck it against the request and package before editing. Make the smallest coherent repair. Edit only SKILL.md or files under scripts/. Preserve unrelated behavior and public interfaces. You may create a missing text source file under scripts/, but may not delete or rename files. Call submit_skill_patch exactly once with zero to eight bounded edits; use zero edits if the surrogate diagnosis is not justified. For an existing file, use replace_exact, copy its visible sha256, and copy a nonempty, unique, verbatim old snippet into observed_source. The old snippet and replacement must each cover the complete syntactic construct being changed (for example the entire function, branch, mapping entry, or command block), so no orphaned header, else branch, delimiter, or indentation remains. For create_file use an empty expected_file_sha256 and empty observed_source. Hidden tests, labels, gold code, oracle behavior, benchmark outcomes, and task-verifier feedback remain unavailable.
+
+PUBLIC_TASK.json
+<public_task_json>
+
+PUBLIC_REQUEST.md
+<maintenance_request>
+
+SURROGATE_REPORT.json
+<surrogate_report_json>
+
+EXECUTED_SURROGATE_CHECKS.json
+<executed_surrogate_checks_json>
+
+CURRENT_VISIBLE_PACKAGE.json
+<visible_package_files_json>

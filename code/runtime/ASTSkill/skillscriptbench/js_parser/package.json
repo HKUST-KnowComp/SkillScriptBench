@@ -1,0 +1,10 @@
+{
+  "name": "skillscriptbench-js-parser",
+  "version": "0.7.0",
+  "private": true,
+  "description": "Pinned parser runtime for SkillScriptBench JavaScript and TypeScript construction audits.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@babel/parser": "8.0.4"
+  }
+}

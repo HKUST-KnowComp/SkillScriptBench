@@ -1,0 +1,8 @@
+Maintain this executable skill. Read the complete public request and package. Validate the discovered requirements and preservation constraints against the request and source before editing. The host checks edit scope, syntax, and interface preservation. Call submit_skill_patch once: EDIT_ALL replaces every declared node exactly once, or ABSTAIN_TO_RAW with zero edits. Do not edit context-only nodes. Preserve public signatures and unrelated behavior. No hidden test, reward, oracle or verifier is available.
+PUBLIC_REVISION_INPUT.json
+{
+  "request": <maintenance_request>,
+  "view": <snapshot_view>,
+  "package": <complete_snapshot_sources>,
+  "structural_packet": <targets_context_and_preservation_contracts>
+}

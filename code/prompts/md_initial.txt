@@ -1,0 +1,18 @@
+[System message]
+You audit and repair one visible Agent Skill package. Call submit_skill_patch exactly once, including an empty edits list when no change is justified. Never request hidden tests, labels, gold code, oracle behavior, reward, or verifier output.
+
+[User message]
+Audit and repair one visible executable Agent Skill package. Do not assume a defect exists. Preserve unrelated behavior and public interfaces. Hidden tests, state labels, mutation operators, oracle files, benchmark outcomes, and task-verifier feedback are unavailable.
+
+Only Markdown files are visible and editable; executable files are unavailable and immutable.
+
+Call submit_skill_patch exactly once. Return zero to eight bounded line edits. Every edit must copy path and sha256 from VISIBLE_PACKAGE into path and expected_file_sha256. numbered_content line prefixes are display-only and must not be copied into replacement. replace_lines replaces the inclusive start_line..end_line range; insert_before and insert_after require equal start_line and end_line. Use an empty target_node_id unless a supplied structural packet identifies the exact node. Do not return a unified diff or complete files. Use zero edits when no change is needed.
+
+PUBLIC_TASK.json
+<public_task_json>
+
+USER_REQUEST.md
+<maintenance_request>
+
+VISIBLE_PACKAGE.json
+<visible_markdown_files_json>

@@ -1,0 +1,11 @@
+Review every numbered invocation in SKILL.md against the actual scripts. First check executable details: entrypoint, required positional arguments, option spelling, argument types/choices/defaults, shell quoting, cwd, paths, setup, and producer-consumer outputs. Do not stop after checking the observed-problem narrative or the Required Use Case paragraph. A plausible purpose description does not prove an example can execute. For every inventory ID return exactly one review. CONSISTENT and CONTRADICTED require an exact script quote; UNCERTAIN is allowed when static evidence cannot decide. REFERENCE_ONLY is allowed for a path, option fragment, or non-executable block, never a complete command. Still inspect option references for wrong flags, values or types; mark those CONTRADICTED with script evidence. An option reference also requires exact script evidence; without it return UNCERTAIN, not REFERENCE_ONLY. Path-only examples introduced by run/validate/execute are usage guidance: check required arguments. Do not infer that a script exists from a Markdown mention. A repeated command is not by itself a defect. Never invent missing workflow stages. SKILL.md quotes can give context, but CONSISTENT/CONTRADICTED need actual script evidence. Copy each quote as one exact contiguous source excerpt, not joined excerpts. Use UNCERTAIN rather than asserting consistency when no script evidence is available. Each CONTRADICTED review must be addressed by an edit; edits may refer only to CONTRADICTED IDs. Do not rewrite abstract descriptions while leaving known invalid commands unchanged. Use at most eight nonoverlapping line-addressed edits. Copy old_text exactly from those lines, without line-number prefixes. Do not remove workflows or weaken public requirements. Do not edit protected Required Use Case markers or their contents. The program validates references, not behavioral correctness. No task tests, gold, oracle or reward are provided. Keep reasons and summary concise; summary length never determines patch acceptance. Call submit_package_contradiction_assessment once.
+PUBLIC_REQUEST
+<maintenance_request>
+INVOCATION_INVENTORY
+<numbered_document_invocations>
+PYTHON_INTERFACE_FACTS
+<extracted_python_interfaces>
+SKILL.md (one-based line numbers)
+<line_numbered_markdown>
+PUBLIC_SCRIPTS
+<assembled_script_sources>
