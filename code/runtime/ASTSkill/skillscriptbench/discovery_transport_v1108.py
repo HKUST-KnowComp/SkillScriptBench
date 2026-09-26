@@ -2,6 +2,7 @@
 import json
 import time
 import urllib.request
+from urllib.parse import urlsplit
 
 from skillscriptbench.io_utils import write_json, read_json, canonical_json_hash
 
@@ -78,7 +79,12 @@ def decode(stream, metadata):
     return result
 
 
-def provider_callback(root, key, secret_pattern):
+def provider_callback(root, key, secret_pattern, *, base_url="https://api.openlux.ai/v1"):
+    endpoint = urlsplit(base_url)
+    if (endpoint.scheme != "https" or not endpoint.hostname or endpoint.username
+            or endpoint.password or endpoint.query or endpoint.fragment):
+        raise ValueError("https_api_base_url_required")
+    completion_url = base_url.rstrip("/") + "/chat/completions"
     p = read_json(root / "PROTOCOL.json")
     def call(prompt, tool, stage):
         payload = {"model": p["model"], "temperature": p["temperature"], "stream": True,
@@ -95,7 +101,7 @@ def provider_callback(root, key, secret_pattern):
             meta = {"attempt": attempt + 1, "request_hash": canonical_json_hash(payload)}
             started = time.monotonic()
             try:
-                request = urllib.request.Request("https://api.openlux.ai/v1/chat/completions",
+                request = urllib.request.Request(completion_url,
                     data=json.dumps(payload).encode(), headers={"Content-Type": "application/json", "Authorization": "Bearer " + key})
                 with urllib.request.urlopen(request, timeout=600) as response:
                     value = decode(response, meta)

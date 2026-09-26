@@ -1,7 +1,7 @@
-"""Portable entry point for the later LLM discovery and document alignment code.
+"""Run AST-Guided Skill Revision on an original package and an initial revision.
 
 The callback API permits offline tests and different model providers. The CLI
-uses the existing OpenLux transport and reads credentials only from a supplied fd.
+uses a user-selected API endpoint and reads credentials only from a supplied fd.
 """
 import argparse
 import json
@@ -19,14 +19,15 @@ from skillscriptbench.io_utils import read_json, write_json, copy_tree_clean, ha
 import invocation_document_audit_v5 as document
 
 
-def prepare(parent, proposal, request, output, model='gpt-5.5'):
+def prepare(parent, proposal, request, output, model='gpt-5.6-sol'):
     result = script_runner.prepare(parent, proposal, request, output, model=model)
     (Path(output) / 'REQUEST.md').write_text(request)
     write_json(Path(output) / 'PIPELINE.json', {
         'name': 'AST-Guided Skill Revision', 'implementation': 'llm-discovery-plus-document-alignment',
         'scripts': 'semantic_discovery_native_runner_v1110', 'document': document.METHOD,
         'semantic_discovery': 'LLM', 'regex_semantic_miner': False,
-        'historical_main_result_reproduction': False})
+        'release_version': '2026-09-26.2',
+        'result_provenance': 'archived experiment outcomes; see VERSIONS.md'})
     return result
 
 
@@ -63,26 +64,33 @@ def run_prepared(root, callback):
     return result
 
 
-def main():
+def build_parser():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['prepare', 'run'])
-    parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--parent', type=Path)
-    parser.add_argument('--proposal', type=Path)
-    parser.add_argument('--request', type=Path)
-    parser.add_argument('--model', choices=['gpt-5.5', 'gpt-5.6-sol'], default='gpt-5.5')
-    parser.add_argument('--credential-fd', type=int, default=3)
+    actions = parser.add_subparsers(dest='action', required=True)
+    prepare_parser = actions.add_parser('prepare', help='Prepare inputs and fix the model for this run')
+    prepare_parser.add_argument('--output', type=Path, required=True)
+    prepare_parser.add_argument('--parent', type=Path, required=True)
+    prepare_parser.add_argument('--proposal', type=Path, required=True)
+    prepare_parser.add_argument('--request', type=Path, required=True)
+    prepare_parser.add_argument('--model', default='gpt-5.6-sol')
+    run_parser = actions.add_parser('run', help='Run using the prepared model and inputs')
+    run_parser.add_argument('--output', type=Path, required=True)
+    run_parser.add_argument('--base-url', required=True, help='HTTPS API base URL, including /v1 if required')
+    run_parser.add_argument('--credential-fd', type=int, default=3)
+    return parser
+
+
+def main():
+    parser = build_parser()
     args = parser.parse_args()
     if args.action == 'prepare':
-        if not all((args.parent, args.proposal, args.request)):
-            parser.error('prepare needs --parent --proposal --request')
         result = prepare(args.parent, args.proposal, args.request.read_text(), args.output, args.model)
     else:
         with os.fdopen(os.dup(args.credential_fd)) as stream:
             key = stream.readline(4096).strip()
         if not key:
             parser.error('empty credential fd')
-        result = run_prepared(args.output, script_runner.provider_callback(args.output, key))
+        result = run_prepared(args.output, script_runner.provider_callback(args.output, key, base_url=args.base_url))
     print(json.dumps(result, ensure_ascii=False))
 
 

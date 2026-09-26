@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
-from release_tools.paired80_required_use_case_compiler_v1 import BEGIN_MARKER, END_MARKER
+from bvi_skill_evo.document_markers import BEGIN_MARKER, END_MARKER
 from skillscriptbench.io_utils import canonical_json_hash
 
 

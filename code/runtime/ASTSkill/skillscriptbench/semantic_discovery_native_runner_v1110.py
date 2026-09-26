@@ -35,8 +35,8 @@ def prepare(parent, raw, request, output, *, model="gpt-5.6-sol"):
     root = Path(output).resolve()
     if root.exists():
         raise FileExistsError(root)
-    if model not in {"gpt-5.5", "gpt-5.6-sol"}:
-        raise ValueError("unsupported_exact_model")
+    if not isinstance(model, str) or not model.strip() or model != model.strip():
+        raise ValueError("nonempty_exact_model_required")
     for path in (parent, raw):
         assert_public_package(path)
         if Path(path).resolve() == root or Path(path).resolve() in root.parents:
@@ -112,9 +112,9 @@ def run_prepared(output, call_model):
     return result
 
 
-def provider_callback(root, key):
+def provider_callback(root, key, *, base_url="https://api.openlux.ai/v1"):
     from skillscriptbench.discovery_transport_v1108 import provider_callback as create
-    return create(root, key, KEY_PATTERN)
+    return create(root, key, KEY_PATTERN, base_url=base_url)
 
 
 def audit_public_inventory(source_run, destination):
@@ -186,4 +186,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

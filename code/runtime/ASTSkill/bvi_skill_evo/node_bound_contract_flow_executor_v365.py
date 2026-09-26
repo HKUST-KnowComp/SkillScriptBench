@@ -8,7 +8,7 @@ from typing import Any
 
 from bvi_skill_evo import python_span_patch_v241 as prior_patch
 from bvi_skill_evo import python_span_patch_v246 as python_patch
-from skillscriptbench import d37_extension45_dual_path_experiment_v309 as patcher
+from bvi_skill_evo import python_span_patch_v237 as patch_base
 from skillscriptbench.io_utils import canonical_json_hash, sha256_file
 
 
@@ -192,7 +192,8 @@ def apply_bound_response(
     canonical_facts = copy.deepcopy(facts)
     canonical_facts["editable_nodes"] = canonical_editable_nodes(source, facts)
     bound_content, binding = bind_response_to_public_nodes(content, source, facts)
-    patcher._configure_edit_limit()
+    patch_base.MAX_EDITS = 3
+    python_patch.MAX_EDITS = 3
     application = python_patch.apply_python_span_patch(
         bound_content,
         source,

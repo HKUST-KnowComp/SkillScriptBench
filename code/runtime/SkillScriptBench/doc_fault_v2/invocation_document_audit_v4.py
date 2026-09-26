@@ -3,7 +3,7 @@ import copy
 import json
 
 from bvi_skill_evo import package_contradiction_alignment_v2 as previous
-from release_tools.paired80_required_use_case_compiler_v1 import BEGIN_MARKER, END_MARKER
+from bvi_skill_evo.document_markers import BEGIN_MARKER, END_MARKER
 from invocation_inventory_v4 import inventory, python_interfaces
 
 METHOD = 'public-invocation-document-audit-v4'

@@ -93,3 +93,49 @@ def test_private_input_rejected_before_model_call(tmp_path):
     import pytest
     with pytest.raises(ValueError, match='nonpublic'):
         api.prepare(parent, proposal, 'Request.', tmp_path / 'run')
+
+
+def test_model_is_selected_at_prepare_and_not_silently_overridden_at_run(tmp_path):
+    import pytest
+    parent, proposal = make_package(tmp_path, 'parent'), make_package(tmp_path, 'proposal')
+    api.prepare(parent, proposal, 'Preserve behavior.', tmp_path / 'run', model='custom-model-id')
+    assert api.read_json(tmp_path / 'run/PROTOCOL.json')['model'] == 'custom-model-id'
+    with pytest.raises(SystemExit):
+        api.build_parser().parse_args(['run', '--output', str(tmp_path / 'run'),
+                                      '--base-url', 'https://example.invalid/v1',
+                                      '--model', 'another-model'])
+
+
+def test_api_endpoint_is_explicit_and_requires_https(tmp_path):
+    import pytest
+    with pytest.raises(SystemExit):
+        api.build_parser().parse_args(['run', '--output', str(tmp_path / 'run')])
+    with pytest.raises(ValueError, match='https_api_base_url_required'):
+        api.script_runner.provider_callback(tmp_path, 'test-only', base_url='http://example.invalid/v1')
+
+
+def test_transport_uses_configured_endpoint_without_network(tmp_path, monkeypatch):
+    import io
+    import json
+    from skillscriptbench import discovery_transport_v1108 as transport
+    parent, proposal = make_package(tmp_path, 'parent'), make_package(tmp_path, 'proposal')
+    run = tmp_path / 'run'
+    api.prepare(parent, proposal, 'Preserve behavior.', run, model='custom-model-id')
+    observed = []
+
+    class Response(io.BytesIO):
+        headers = {'Content-Type': 'application/json'}
+
+    def fake_urlopen(request, timeout):
+        observed.append(request.full_url)
+        payload = json.loads(request.data)
+        assert payload['model'] == 'custom-model-id'
+        name = payload['tools'][0]['function']['name']
+        body = {'model': payload['model'], 'choices': [{'finish_reason': 'tool_calls',
+                'message': {'tool_calls': [{'function': {'name': name, 'arguments': '{}'}}]}}]}
+        return Response(json.dumps(body).encode())
+
+    monkeypatch.setattr(transport.urllib.request, 'urlopen', fake_urlopen)
+    callback = api.script_runner.provider_callback(run, 'test-only', base_url='https://example.invalid/v1/')
+    assert callback('Example prompt', {'function': {'name': 'example_tool'}}, 'discovery') == {}
+    assert observed == ['https://example.invalid/v1/chat/completions']
