@@ -6,16 +6,17 @@ while preserving correct parts of the package.
 
 ## Setup
 
-Use Linux x86-64, Python 3.12, and Docker. The evaluator archive and runtime
-parts are separate assets, not files in the Git checkout. Obtain
-`SkillScriptBench_evaluator.tar.gz`, `RUNTIME_PARTS.json`, and its numbered
-runtime parts from the maintainers. Keep the runtime parts beside the manifest.
+Use Linux x86-64, Python 3.12, and Docker. Download the evaluator, fixtures, and
+pinned runtime images from the [Release](https://github.com/xuansenpa1/skillscriptbench-review/releases/tag/benchmark-v0.1.0).
+The private repository requires authenticated access:
 
 ```bash
+gh release download benchmark-v0.1.0 --repo xuansenpa1/skillscriptbench-review \
+  --pattern 'SkillScriptBench_evaluator.tar.gz' --pattern 'RUNTIME_PARTS.json' \
+  --pattern 'SkillScriptBench_runtime_images.tar.gz.part*' --dir assets
 python -m pip install -e '.[evaluation]'
-tar -xzf SkillScriptBench_evaluator.tar.gz
-python scripts/load_runtimes.py --manifest /path/to/runtime/RUNTIME_PARTS.json --load
-skillscriptbench evaluation --bundle ./evaluator verify
+tar -xzf assets/SkillScriptBench_evaluator.tar.gz
+python scripts/load_runtimes.py --manifest assets/RUNTIME_PARTS.json --load
 skillscriptbench evaluation --bundle ./evaluator doctor
 ```
 
@@ -29,20 +30,47 @@ in isolated containers with networking disabled. Keep credentials outside the
 execution environment. Images must match the pinned IDs and are not pulled
 automatically.
 
-## Score a revised package
+## Single-task evaluation
 
 Supply the complete package and a new job directory:
 
 ```bash
-skillscriptbench evaluation --bundle ./evaluator prepare TASK_ID \
+python evaluate.py --bundle ./evaluator --task TASK_ID \
   --candidate /path/to/revised/package --output runs/evaluation
-skillscriptbench evaluation score --job runs/evaluation
 ```
 
-`prepare` snapshots the package and its task-specific evaluation assets. `score`
-runs fresh checks and writes `SCORE.json`, component results, and execution logs.
-The method receives only the request and input package; evaluation assets remain
-separate.
+The evaluator snapshots each package and runs fresh checks. Your method receives
+only the request and input package; evaluation assets remain separate.
+
+## Batch evaluation
+
+Create `candidates.json`, listing one package for each task and run:
+
+```json
+[
+  {"task_id": "TASK_ID", "candidate": "outputs/run1/package", "run": 1},
+  {"task_id": "TASK_ID", "candidate": "outputs/run2/package", "run": 2},
+  {"task_id": "TASK_ID", "candidate": "outputs/run3/package", "run": 3}
+]
+```
+
+Replace `TASK_ID` with an ID from `skillscriptbench list`. Candidate paths are
+relative to the manifest, or absolute. Each run should contain the output of a
+separate attempt by your method; omit `run` for a single attempt.
+
+```bash
+python evaluate.py --bundle ./evaluator --manifest candidates.json \
+  --output runs/batch --workers 2
+```
+
+Add `--dry-run` to validate the manifest without executing packages. Up to four
+workers are supported; choose concurrency to match available resources.
+
+## Results
+
+`scores.csv` contains task/run outcomes. `summary.json` reports all tasks,
+repair tasks, Clean tasks, and individual states. Per-task directories under
+`jobs/` contain `SCORE.json`, component results, and execution logs.
 
 | Status | Meaning |
 | --- | --- |
@@ -51,13 +79,10 @@ separate.
 | `error` | A required check cannot complete; inspect the logs |
 
 For Doc tasks, scoring also checks existing invocations using reference
-documentation and the candidate's scripts. Saved main-result outcomes are not
-used to score new candidates.
+documentation and the candidate's scripts.
 
-To debug a component, prepare a separate fresh job and use
-`skillscriptbench evaluation behavior --job PATH` or
-`skillscriptbench evaluation document --job PATH`. Use `score` for the whole task.
-Fixture changes and validation records accompany the separate evaluator assets.
+For component-level debugging, the lower-level CLI provides `prepare`, `behavior`,
+`document`, and `score` subcommands. See `skillscriptbench evaluation --help`.
 
 ## Metrics
 
@@ -69,3 +94,7 @@ Across N tasks with three runs each:
 
 Report percentages, with Clean preservation separate from repair results.
 Use the `main_results` subset for the 300 repair tasks and `clean` for the 50 preservation tasks.
+
+Incomplete repeat groups leave Avg, P@3, and Hit³ unset; a single-run evaluation
+reports success rate. Execution errors are reported separately and must be
+resolved before aggregate rates are reported.

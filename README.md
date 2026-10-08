@@ -2,7 +2,7 @@
 
 **Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown**
 
-[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md)
+[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Download assets](https://github.com/xuansenpa1/skillscriptbench-review/releases/tag/benchmark-v0.1.0)
 
 SkillScriptBench evaluates repair and preservation of executable agent skill packages containing Markdown instructions and scripts. This repository contains the benchmark and evaluation tools.
 
@@ -33,18 +33,25 @@ Evaluation requires Linux x86-64, Docker, and the separate evaluator and runtime
 
 ```bash
 python -m pip install -e '.[evaluation]'
-skillscriptbench evaluation --bundle /path/to/evaluator prepare TASK_ID \
+python evaluate.py --bundle /path/to/evaluator --task TASK_ID \
   --candidate /path/to/revised/package --output runs/evaluation
-skillscriptbench evaluation score --job runs/evaluation
 ```
 
-A task succeeds when both behavioral and documentation-driven checks pass. `SCORE.json` records the result; component files contain execution details. Metrics are defined in the [evaluation guide](docs/evaluation.md#metrics).
+A task succeeds when both behavioral and documentation-driven checks pass. The command produces `scores.csv`, `summary.json`, and per-task logs. For multiple packages, supply a [candidate manifest](docs/evaluation.md#batch-evaluation):
+
+```bash
+python evaluate.py --bundle /path/to/evaluator --manifest candidates.json \
+  --output runs/batch --workers 2
+```
+
+Three runs per task produce Avg, P@3, and Hit³, with Clean preservation reported separately from repair.
 
 ## Contents
 
 ```text
 benchmark/   350 task inputs, metadata, source attribution, and license notices
 ssbench/     Task loader and scoring CLI
+evaluate.py  Single-task and batch evaluation
 docs/        Evaluation setup and usage
 scripts/     Runtime asset loader
 tests/       Loader and evaluator tests

@@ -11,7 +11,7 @@ A task pairs a maintenance request with a package containing `SKILL.md`, scripts
 | Selection | Tasks | Purpose |
 | --- | ---: | --- |
 | `all` | 350 | Complete input collection |
-| `main_results` | 300 | Table 2: In-the-Wild, Doc, Script, Joint |
+| `main_results` | 300 | Repair: In-the-Wild, Doc, Script, Joint |
 | `clean` | 50 | Clean-state preservation |
 
 These define evaluation subsets, not train/dev/test partitions. Group by `base_id` when comparing Controlled states.
@@ -20,11 +20,9 @@ These define evaluation subsets, not train/dev/test partitions. Group by `base_i
 
 ```text
 TASKS.json                  Input paths and expected hashes
-STATUS.json                 Coverage and integrity summary
 metadata.json               Track, state, partition, and package-group labels
 SOURCES.json                Upstream repository/revision/license metadata for 350 tasks
 CONTROLLED_GROUPS.json      50 groups, each mapping the four task states
-ATTRIBUTION_STATUS.json     Attribution assembly summary
 licenses/                  Original Controlled-source license notices
 splits/{all,main_results,clean}.json
 tasks/<task_id>/REQUEST.md   Public maintenance request

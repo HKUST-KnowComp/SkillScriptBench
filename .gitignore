@@ -6,6 +6,8 @@ node_modules/
 .venv/
 .env
 runs/
+assets/
+evaluator/
 build/
 dist/
 *.egg-info/
