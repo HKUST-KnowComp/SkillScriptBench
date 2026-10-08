@@ -1,43 +1,71 @@
 # Evaluation
 
-## Task success
+A task succeeds when both behavioral and documentation-driven checks pass.
+Clean tasks measure preservation; Doc, Script, and Joint tasks measure repair
+while preserving correct parts of the package.
 
-The paper evaluates the whole package. Success requires both:
+## Setup
 
-1. **Behavioral checks:** scripts satisfy requested behavior and preserve required existing behavior.
-2. **Documentation-driven checks:** documented usage agrees with executable behavior and satisfies documentation requirements.
+Use Linux x86-64, Python 3.12, and Docker. The evaluator archive and runtime
+parts are separate assets, not files in the Git checkout. Obtain
+`SkillScriptBench_evaluator.tar.gz`, `RUNTIME_PARTS.json`, and its numbered
+runtime parts from the maintainers. Keep the runtime parts beside the manifest.
 
-Controlled Clean tasks measure preservation; Doc, Script, and Joint measure repair while retaining correct parts.
+```bash
+python -m pip install -e '.[evaluation]'
+tar -xzf SkillScriptBench_evaluator.tar.gz
+python scripts/load_runtimes.py --manifest /path/to/runtime/RUNTIME_PARTS.json --load
+skillscriptbench evaluation --bundle ./evaluator verify
+skillscriptbench evaluation --bundle ./evaluator doctor
+```
 
-## Release coverage
+The compressed runtime is about 13.8 GB; allow additional space for Docker layers
+and job directories. The loader verifies and streams the parts without creating
+another combined archive. Omit `--load` for verification only. If supplied as a
+single archive, use `docker image load -i SkillScriptBench_runtime_images.tar.gz`.
 
-| Capability | Included |
+`verify` checks asset integrity; `doctor` checks dependencies. Candidates run
+in isolated containers with networking disabled. Keep credentials outside the
+execution environment. Images must match the pinned IDs and are not pulled
+automatically.
+
+## Score a revised package
+
+Supply the complete package and a new job directory:
+
+```bash
+skillscriptbench evaluation --bundle ./evaluator prepare TASK_ID \
+  --candidate /path/to/revised/package --output runs/evaluation
+skillscriptbench evaluation score --job runs/evaluation
+```
+
+`prepare` snapshots the package and its task-specific evaluation assets. `score`
+runs fresh checks and writes `SCORE.json`, component results, and execution logs.
+The method receives only the request and input package; evaluation assets remain
+separate.
+
+| Status | Meaning |
 | --- | --- |
-| Load all 350 task requests and packages | Yes |
-| Verify package and request integrity | Yes |
-| Run AST-Guided Skill Revision with a provider | Yes |
-| Reconstruct Table 2 from 18,000 outcomes | Yes |
-| Run task-specific behavioral/documentation checks | Scoring CLI included; evaluator assets and fixed containers are separate |
-| Reconstruct Clean-state scores from per-run outcome exports | Not yet bundled |
+| `pass` | All required checks pass |
+| `fail` | Checks complete and a required condition fails |
+| `error` | A required check cannot complete; inspect the logs |
 
-The outcome snapshot reconstructs the published table; it does not score newly generated candidates.
+For Doc tasks, scoring also checks existing invocations using reference
+documentation and the candidate's scripts. Saved main-result outcomes are not
+used to score new candidates.
 
-## Evaluator packaging
-
-Follow the [evaluator setup guide](evaluator-integration.md) to prepare and score
-a new candidate. The separate asset bundle binds checks, fixtures, dependencies,
-and entrypoints to all 350 task IDs. Containers are a separate archive rather
-than large binary files in the source repository.
-
-Execution validation is recorded in the release report. Asset-integrity checks
-and saved outcome reconstruction are separate from fresh candidate evaluation.
+To debug a component, prepare a separate fresh job and use
+`skillscriptbench evaluation behavior --job PATH` or
+`skillscriptbench evaluation document --job PATH`. Use `score` for the whole task.
+Fixture changes and validation records accompany the separate evaluator assets.
 
 ## Metrics
 
-For N tasks with three binary outcomes each:
+Across N tasks with three runs each:
 
 - **Avg:** successful runs divided by 3N.
 - **P@3:** tasks with at least one success divided by N.
-- **Hit³:** tasks with three successes divided by N.
+- **Hit³:** tasks with all three runs successful divided by N.
 
-Multiply by 100 for percentages. Pool task/run counts within each reported group. Clean is separate from the main repair table.
+Report percentages, with Clean preservation separate from repair results.
+The included [outcomes](../results/) cover the 300-task main repair table.

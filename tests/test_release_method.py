@@ -1,4 +1,8 @@
 """Offline regressions for target identity and Markdown edit authority."""
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'code'))
 import run_revision as api
 
 
@@ -62,7 +66,7 @@ def test_unchanged_parent_with_repeated_lines_keeps_exact_target():
 def test_published_document_prompt_matches_runtime():
     from pathlib import Path
     actual = api.document.build_prompt('Request.', '# Skill\n', {})
-    published = (Path(__file__).parent / 'prompts/markdown_alignment.txt').read_text().splitlines()[0]
+    published = (api.HERE / 'prompts/markdown_alignment.txt').read_text().splitlines()[0]
     assert actual.split('\n\nPUBLIC_REQUEST\n')[0] == published
 
 

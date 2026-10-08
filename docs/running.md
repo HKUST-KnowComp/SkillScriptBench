@@ -1,4 +1,4 @@
-# Running the release
+# Running SkillScriptBench
 
 ## Task loading
 
@@ -43,6 +43,8 @@ skillscriptbench revise prepare \
 ```
 
 Preparation fixes the model and hashes without model calls. The output directory must be new. The task loader does not generate a baseline proposal; baseline instructions are in `code/prompts/`.
+
+The original package is not a substitute for the baseline-generated proposal when running either +AST configuration. For direct script use, replace `skillscriptbench revise` with `python code/run_revision.py` in these commands.
 
 ## Execute the revision
 

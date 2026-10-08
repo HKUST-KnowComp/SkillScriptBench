@@ -7,4 +7,3 @@ This notice does not grant an additional license to project code or data.
 Benchmark packages contain third-party software and documentation. Preserve
 their original notices and terms; inclusion does not relicense those files.
 benchmark/SOURCES.json records metadata available in the task manifest.
-See docs/release.md for remaining public-distribution preparation.

@@ -8,7 +8,7 @@ import urllib.request
 
 import pytest
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'code'))
 import run_revision as api
 from skillscriptbench import discovery_transport_v1108 as transport
 

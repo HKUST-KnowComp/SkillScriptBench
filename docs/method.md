@@ -44,6 +44,4 @@ The callback returns parsed JSON **tool arguments**, not a provider response env
 | Raw proposal | [raw_package.txt](../code/prompts/raw_package.txt) |
 | CoEvoSkills proposal | [revision](../code/prompts/coevo_revision.txt), [verifier](../code/prompts/coevo_verifier.txt) |
 
-The wrapper retains the reviewed runtime and published prompt files. Runtime module suffixes are implementation identifiers, not separate methods. [VERSIONS.md](../VERSIONS.md) records their lineage.
-
 `FINAL.json` points to `final/package/`. Discovery, script branches, and document review records are retained with the run. Task checks determine success separately from package generation.

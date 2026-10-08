@@ -33,5 +33,5 @@ include-package-data = false
 "ssbench._runtime" = ["runtime/**/*.py", "runtime/**/*.json", "runtime/**/*.js", "runtime/**/*.cjs", "runtime/**/*.mjs", "prompts/*.txt"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests", "code"]
+testpaths = ["tests"]
 norecursedirs = ["runtime", "benchmark", "node_modules", ".venv"]

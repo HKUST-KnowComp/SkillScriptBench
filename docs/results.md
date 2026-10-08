@@ -39,4 +39,4 @@ The script checks the complete 300 × 4 × 5 × 3 matrix, unique run keys, and a
 
 `benchmark/splits/main_results.json` matches the 300-task result set. The 50 added Clean input packages complete input coverage without changing the frozen table.
 
-Store new experiments under new run directories and retain `results/` as the published reference snapshot. Portable-runner and historical-result versions are recorded separately in [VERSIONS.md](../VERSIONS.md).
+Store new experiments in separate run directories. The archived experiment outcomes are recorded in `results/SOURCE.json`; the revision runner identifies its implementation in each run's `PIPELINE.json`.
