@@ -1,5 +1,19 @@
 # Running AST-Guided Skill Revision
 
+## Installation
+
+Use Python 3.12 and Node.js 22.18+ within the 22.x series, or Node.js 24.11+.
+From the extracted repository or code-only archive root:
+
+```sh
+python3 -m pip install -r code/requirements.txt
+npm ci --prefix code/runtime/ASTSkill/skillscriptbench/js_parser
+python3 code/examples/offline_walkthrough.py
+```
+
+The code-only archive includes the revision stage and example. The complete
+release additionally includes `benchmark/` and `results/` used below.
+
 ## Inputs
 
 The revision stage takes three inputs:
@@ -48,6 +62,8 @@ The key is read in memory; do not place it in the command or repository.
 `run` uses the model fixed during `prepare`. The transport checks that the
 response model ID exactly matches that identifier. For other provider
 protocols, use the callback interface below.
+HTTP redirects are refused to prevent forwarding credentials to another endpoint.
+Configure the provider's final API URL directly.
 
 ## Model callback
 

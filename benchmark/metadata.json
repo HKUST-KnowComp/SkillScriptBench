@@ -1,0 +1,2454 @@
+{
+  "tasks": [
+    {
+      "task_id": "d16-matlab-multiroute",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d16-railway-multiroute",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d16-unbroker-multiroute",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d16-vcp-multiroute",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d18-ace-enhancement-workflow-multiflow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d18-breakout-actionable-multiflow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d18-parabolic-two-phase-multiflow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d18-pkpd-estimation-exposure-multiflow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d18-trader-memory-review-multiflow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-autoskill-run-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-canslim-analysis-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-gtars-bed-path-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-pathml-mask-write-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-pptx-template-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-protocols-request-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d24-pydicom-pseudonym-binding",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-bottleneck-index-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-conversation-field-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-data-quality-threshold-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-design-prompt-field-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-duration-threshold-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-forecast-threshold-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-l4t-delimiter-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-media-type-delimiter-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-playwright-delimiter-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-structure-score-limit-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-tempo-field-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d25-tokenize-limit-effect",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-adt-zone-nested-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-app-name-nested-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-citation-text-alias-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-conversation-created-nested-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-extract-date-nested-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-feedback-item-alias-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-format-metric-alias-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-linear-regression-module-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-parse-horizons-module-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-tail-module-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-to-bubble-module-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d26-ts-to-seconds-alias-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-analytical-method-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-comfyui-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-commercial-forecast-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-cot-analysis-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-data-quality-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-image-search-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-momentum-screen-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-pinmux-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-stock-study-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d27-vpe-planning-dual-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-js-mp4-extension-filter",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-js-sort-direction",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-sh-default-fallback",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-sh-exit-status",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-sh-unary-guard",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-ts-branch-literal",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-ts-local-fallback",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d28-ts-sort-direction",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-alert-ack-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-alert-ack-safety-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-alert-query-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-diff-selection-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-extract-capacity-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-receipts-filter-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-replica-capture-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-service-output-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-service-transaction-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d29-service-window-options",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-comfy-node-iteration",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-comfy-schema-return",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-data-quality-ordering",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-forge-template-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-fx-tier-validation",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-market-history-persistence",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-position-precision-validation",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-stanley-json-persistence",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-weekly-bar-ordering",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d30-workflow-fixture-directory",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-calendar-network-error-contract",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-coordination-claim-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-dividend-event-cap-flow",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-forge-template-validation-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-integration-markdown-report",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-onboarding-manifest-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-pair-screen-json-persistence",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-pivot-ranking-contract",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-postmortem-priority-order",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-review-iteration-directory",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-signal-deduplication-ranking",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d31-weekly-series-normalization",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-contrarian-json-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-downtrend-mean-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-earnings-total-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-edge-concept-evidence-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-exposure-json-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-ftd-days-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-hint-timestamp-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-navigator-gap-order",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d32-pretrade-cli-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d33-dividend-summary-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d33-hint-news-symbol-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d33-hint-safe-float-recovery",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d33-market-new-york-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d33-sector-ranking-direction",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d33-strategy-risk-profile-schema",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-000bd5577b58cf49b566",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-175f00bdba98ffc30896",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-22d3e8cafd215466ba13",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-23a2c3120d2b201a45a5",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-2dd6e7c8e214cb288123",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-31405924764f28ac3fc4",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-3344d69baab671b330f8",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-346e02a74b07b08ff595",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-37754231467873841115",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-3960b339958a2f827109",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-3ce5cb75391abf3954b0",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-4113071bffb3dc51e96f",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-41cb5c6af038f5e2b7e7",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-4283c8752aa39f86b5bb",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-4554a7224a0e7dc98c32",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-49711b83913d1d42a776",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-4b3a470e836fb85231cd",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-4dc5d915c3e97f67b764",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-512655ed3307f7a18d39",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-58f6e5ee05bafe7ba05b",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-60eecfccff957e7a8f6f",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-6bd8c1d011aa1adfd9bf",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-79074eb5b2a0e3643d25",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-81c7b0ca01ebc4496185",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-8443b0beec5172d02f03",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-87f66a7c98e4e70409cd",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-8a3ca32a1b9e1e36deab",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-8e546d208ad9ded0e370",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-9c27c0773c7813575d77",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-9e10083192c86474a0d5",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-9f27a533d67f1041c692",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-a476adb771028022004f",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-a55d2a55ef2972425ac1",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-b36758c55afcdc980ee8",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-c88c2594642b6ca6eacc",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-db74663796be8d0425ab",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-dda90db3aa05bd3f8e52",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-e82f91c94eb69a9eb06f",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-e8b55c326fe99cd8bd85",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-e94a22c31d5ae48560af",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-eb10b2371c4c2de44393",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-f02ecfd737b4939c771a",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-f9d85e391f0eafcb01d8",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-fa83abea78fb4cfec75a",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "d37-task-fc45a1ee56bdc374b587",
+      "state": "source_repair",
+      "partition": null,
+      "base_id": null,
+      "track": "in-the-wild"
+    },
+    {
+      "task_id": "ssb-deep60-case-006bc33274808722",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-bcef286f08178ad7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-0c09b835766fbeb3",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8d91aef2460f9f34",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-18b5b153d97659d7",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8d91aef2460f9f34",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-1964cc41c4230ac6",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f50a8a99aa162911",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-201e0557f330b9a5",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-b695a29f9385d4a7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-2267af0f8a984464",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8cc5461a63fc7624",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-228d0ffc53d66279",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-46a63e7b5abc234c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-257e64ffab1a3528",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-b695a29f9385d4a7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-2da337283cb19933",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f50a8a99aa162911",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-2ddc98d02aa2c72c",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-157454365bfcf0bd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-33ac9a65ce503be0",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-237aadb192520337",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-35a2f3a68b737d17",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f2501523f401da2f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-35f8e07635d2c1cf",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-b695a29f9385d4a7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-385fa20faf0fb44f",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-467d430ffc40b7ad",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-3945e621dbe591f2",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-157454365bfcf0bd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-3cff0e1126ac19e9",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-cdcb6fe15625c2dc",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-3d70e9ee5960a955",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-46a63e7b5abc234c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-3d7c863ef89fa7fd",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-9729762ce958c22e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-3edf89f2eaf2256a",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f2501523f401da2f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-44666d135376b1f8",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-157454365bfcf0bd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-44a93a45bffa783d",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-d55c71d55836c5c1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-4663341edfb2b6f1",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8cc5461a63fc7624",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-477e5368654ce73a",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-d55c71d55836c5c1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-4be690e181006943",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-b695a29f9385d4a7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-4e4f7ead8f6c9eeb",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-936fac9185f1b89c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-4f38d2208748ddec",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-936fac9185f1b89c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-577f54d067178c81",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-cdcb6fe15625c2dc",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-58c9eff1f2dd7e55",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-936fac9185f1b89c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-59954ae2cd83dbed",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-237aadb192520337",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-59d68eb34c143ef9",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-cdcb6fe15625c2dc",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-5a656b1389025f63",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-29a649bbc03d507a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-5e2135622b4d04df",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8cc5461a63fc7624",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-68a63e09abb30c8e",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-936fac9185f1b89c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-69ff23c2ea069e8e",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-29a649bbc03d507a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-6e7b23ac72af3a47",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-bcef286f08178ad7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-76aaacff754b74d8",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-bcef286f08178ad7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-79e858ccb1ddfce4",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-cdcb6fe15625c2dc",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-7fef6db08be13d38",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f50a8a99aa162911",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-86a21591c72f64a2",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-d55c71d55836c5c1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-a1d55eed1b99a267",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-46a63e7b5abc234c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-a3b20cbc89d222e6",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-9729762ce958c22e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-a9b6d4ee474dbd50",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f2501523f401da2f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-aa804e4fdbdcca9b",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-29a649bbc03d507a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-ac9ca783e9209184",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-9729762ce958c22e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-ae10df1789213321",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-29a649bbc03d507a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-b4e6ba502912fae1",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-bcef286f08178ad7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-bf46c727d4e00e1c",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8d91aef2460f9f34",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-c7ac31e98411fbc8",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-467d430ffc40b7ad",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-da820003ecf7eff1",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-157454365bfcf0bd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-dc13702398275310",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-467d430ffc40b7ad",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-ddcc3868cfc01f43",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-467d430ffc40b7ad",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e12dad4e79df4450",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8cc5461a63fc7624",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e2f444b823fb46bc",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-237aadb192520337",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e498f35fbe365bd1",
+      "state": "doc_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-237aadb192520337",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e4dcf316d9082a8d",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f2501523f401da2f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e56ad7be6079559e",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-d55c71d55836c5c1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e79aac0c3a12e8d1",
+      "state": "joint_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-9729762ce958c22e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-e93196991f8d81cc",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-f50a8a99aa162911",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-f8e43276eccd8365",
+      "state": "script_fault",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-8d91aef2460f9f34",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-deep60-case-f9a9ccb75125f1c0",
+      "state": "clean",
+      "partition": "DeepFlow60",
+      "base_id": "ssb-deep60-base-46a63e7b5abc234c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-006a0f1a977c92e0",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-61ac494d57639881",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-01520bf61532b456",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b07adbdc2f385eb0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-05e4adead74071a3",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b07adbdc2f385eb0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-064ca11eeccc3247",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-5471bdd643a2e017",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-0ed55f1dfd7abf1c",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-56ead6cdebb36710",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-141af48c27948e8e",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-83189b999489ea40",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-168be6d7158a7c81",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-898d34e1f8687377",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-16be8204dce84c5d",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b61dcd452636a1e1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-18c2763c31ddc893",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-e090a4e8446db328",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-1f17a5aa30fae801",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-56ead6cdebb36710",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-27deec61d7748834",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-2aaadcedd1f802ce",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-2819a87d7d1dfbe8",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-e090a4e8446db328",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-29cee80e19023fd5",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-419cfe06f63c460e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-2b7a241c7dc5b7dd",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-da42e4a2ef43fb47",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-31f240109c9c60d1",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-d31244d06996c69e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-347a442406e41c58",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-da42e4a2ef43fb47",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-351f941f1d57eb4d",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-898d34e1f8687377",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-35242ba2f302369d",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-da42e4a2ef43fb47",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-35455f43abb19a94",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b07adbdc2f385eb0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-3a14219884292ff4",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-5471bdd643a2e017",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-3af501070cb32f0c",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b61dcd452636a1e1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-3b7dcc0bbcd59fdf",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-5471bdd643a2e017",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-3c134517349c554b",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-d31244d06996c69e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-42d4dff133e369d8",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-7b5033c726659cf1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-4413dd92bdeeb715",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-2aaadcedd1f802ce",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-5047542ace3331b9",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-61ac494d57639881",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-5adb0f06658a930b",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-83189b999489ea40",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-5ba260032270cc11",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-44ae3540acae7f6f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-5e4b48e710487220",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b61dcd452636a1e1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-601fc286773c7c0c",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-1051e707ee597b9f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-66f2cc37d02b43fc",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-d31244d06996c69e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-68899e58662c11b5",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-419cfe06f63c460e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-6cedfee71f4a46bd",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-61ac494d57639881",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-6d128ee5bea2b442",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-44ae3540acae7f6f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-6f882571bd6a23f2",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-1051e707ee597b9f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-726735296391062b",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-7b5033c726659cf1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-76bbd5c32af14b69",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-da42e4a2ef43fb47",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-80c0a58bbbacde1f",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-898d34e1f8687377",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-8c3022c9c27511d7",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b07adbdc2f385eb0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-8f5b790980dfa58e",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-2aaadcedd1f802ce",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-9663fb63231be1fa",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-b61dcd452636a1e1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-a07073f15e7bbd7c",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-7b5033c726659cf1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-a4dc20f723742dec",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-1051e707ee597b9f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-a77a991b11d9c630",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-7b5033c726659cf1",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-ae5ce5ba27cf322c",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-d31244d06996c69e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-b21a31fc5343071c",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-56ead6cdebb36710",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-b5c5fe2cdacf5bad",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-2aaadcedd1f802ce",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-b7642a0d8939b76c",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-5471bdd643a2e017",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-c0df760747ff9017",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-83189b999489ea40",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-cbdfc90795c985ea",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-898d34e1f8687377",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-ceb86fa1d9dac161",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-1051e707ee597b9f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-d1a8704b6dc3c7a3",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-419cfe06f63c460e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-d3d877b753b8ba9b",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-e090a4e8446db328",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-d994a7b6e079d36a",
+      "state": "doc_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-44ae3540acae7f6f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-da5f977bbb1b8060",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-419cfe06f63c460e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-db82e94ceea511fd",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-44ae3540acae7f6f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-e7c974163265d231",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-61ac494d57639881",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-f5f8587dc36ca396",
+      "state": "script_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-83189b999489ea40",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-f6850ed1c655b434",
+      "state": "joint_fault",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-56ead6cdebb36710",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-hard60-case-f7bbee8d1f731c75",
+      "state": "clean",
+      "partition": "Breadth60",
+      "base_id": "ssb-hard60-base-e090a4e8446db328",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-026b0efa79680e46",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-fa4e7adb420d9c38",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-043c1f4071b3bd3b",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-fa4e7adb420d9c38",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-0a6036c547d6f6d0",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-50a321041125b432",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-0dc9f4353c2b8e33",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-69fc82ae919f5b06",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-189194df7db2d0c3",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-08846d33622b963f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-1f1fb9a1faef9104",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-ed60374587d1a824",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-21f0e4183d7b6c9a",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-d10cf419259ba890",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-22f0a01e41504a6a",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-b896f54a4c08b391",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-257875aa8c963775",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-4050f8508e09a116",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-25ea2ed271af70c7",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-01015a48f2cceac2",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-2a73944cf7e99dc5",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-c73c4cabdd4a3971",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-3418cb8c5bd20de6",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-c11aa38ac2b072fd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-346ea88ed876ff00",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-f967782dcac2af07",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-366c8aff65067337",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-fa4e7adb420d9c38",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-37ed421aa90d8f62",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-d10cf419259ba890",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-41476cc1f9187a6d",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-c11aa38ac2b072fd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-427ad88442cbe994",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-50a321041125b432",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-442448a095757d68",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-88ce0e9daf410ba0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4557aed354891b4c",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-127d84d894b7d30a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4557cb4e718e62c2",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-c73c4cabdd4a3971",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4727e0410ccc0745",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-d10cf419259ba890",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4a45c8073d34daf9",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-86e13feed3441e2c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4a5c178c2e058bfb",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-5e8dc4b91db2149e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4c5b99e39efd83e5",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-50a321041125b432",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-4eac344c3831a3c9",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-127d84d894b7d30a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-5a3b4ba0104c1e16",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-958880d3067a319f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-61be83358cd103ec",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-9417ba6306f9f0ca",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-63bcc9f5ef7278bc",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-88ce0e9daf410ba0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-63f306c79c33cb27",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-4050f8508e09a116",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-64ea000fb03ca144",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-88ce0e9daf410ba0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-6502ff15137aedb4",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-d10cf419259ba890",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-686a44467164defa",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-958880d3067a319f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-750df19b448b96b1",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-86e13feed3441e2c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-76438326864931d1",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-5e8dc4b91db2149e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-7869565dbe0944ed",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-08846d33622b963f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-7a60848d9f4be8d5",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-ed60374587d1a824",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-7de0b71f026521d9",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-127d84d894b7d30a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-7e1f42c11056c1e6",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-b896f54a4c08b391",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-7e8fbd244e93839a",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-fbcdea76f5d765f5",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-82b3404ab8687c78",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-9417ba6306f9f0ca",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-85287c8ed6ddec32",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-69fc82ae919f5b06",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-8560c3316f6a5dbe",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-01015a48f2cceac2",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-878c851cebd3676c",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-08846d33622b963f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-8862e6052f46bf27",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-f967782dcac2af07",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-952611cb0f56709a",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-958880d3067a319f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-96d60986b27587f4",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-ed60374587d1a824",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-97935129aaf0a3ad",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-fa4e7adb420d9c38",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-9a5fd0dda09e3cd0",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-01015a48f2cceac2",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-9cfaef05b3749354",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-86e13feed3441e2c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-a376528b589ed48c",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-86e13feed3441e2c",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-a47b1ed59224c5ff",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-9a2c4c329decffc7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-a7b4351420c342fc",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-fbcdea76f5d765f5",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-b705d0f121a2ae40",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-f967782dcac2af07",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-b71ed7e01dd3d4bd",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-01015a48f2cceac2",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-b90b347121d974a4",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-9a2c4c329decffc7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-ba889a46fb615804",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-fbcdea76f5d765f5",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-bd2701b98c7cc50f",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-c11aa38ac2b072fd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-bf140dda779e1048",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-5e8dc4b91db2149e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-bf3a67f04e6db4bd",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-9417ba6306f9f0ca",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-c4fdefe94aaa948f",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-08846d33622b963f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-caeff460644468ef",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-69fc82ae919f5b06",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-cc6da92d1f16e50a",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-b896f54a4c08b391",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-cff7566b7d078144",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-c11aa38ac2b072fd",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-d614f547984c9f9a",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-88ce0e9daf410ba0",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-d8e0734314b6de42",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-f967782dcac2af07",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-dab120be1d78ef0b",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-fbcdea76f5d765f5",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-dbdf8828896156c3",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-9a2c4c329decffc7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-dddc2d9c5f9c5f8b",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-958880d3067a319f",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-e131d9f6381c08e4",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-69fc82ae919f5b06",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-e32484a5a46a8400",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-4050f8508e09a116",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-e40aaef73224b942",
+      "state": "doc_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-127d84d894b7d30a",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-e67a4f89d0b13633",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-9a2c4c329decffc7",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-e7fc05a8766c7b4c",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-5e8dc4b91db2149e",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-ee8a3653fd0a85a8",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-4050f8508e09a116",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-f471b10752d75e85",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-b896f54a4c08b391",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-f8cdbd5eaf4cece6",
+      "state": "script_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-c73c4cabdd4a3971",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-f969acffcf0bf9a1",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-50a321041125b432",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-f96c6cadb6c96de8",
+      "state": "joint_fault",
+      "partition": "Core80",
+      "base_id": "ssb-base-9417ba6306f9f0ca",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-fdc1089c01385927",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-ed60374587d1a824",
+      "track": "controlled"
+    },
+    {
+      "task_id": "ssb-state-fe5195b1f1c91882",
+      "state": "clean",
+      "partition": "Core80",
+      "base_id": "ssb-base-c73c4cabdd4a3971",
+      "track": "controlled"
+    }
+  ]
+}

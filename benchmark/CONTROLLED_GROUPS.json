@@ -1,0 +1,554 @@
+{
+  "groups": [
+    {
+      "base_id": "ssb-base-01015a48f2cceac2",
+      "source_repository": "https://github.com/awslabs/agent-plugins",
+      "source_commit": "34afdf5005325f17d5da2d1443b87f27a53b0a20",
+      "tasks": {
+        "doc_fault": "ssb-state-25ea2ed271af70c7",
+        "script_fault": "ssb-state-8560c3316f6a5dbe",
+        "clean": "ssb-state-9a5fd0dda09e3cd0",
+        "joint_fault": "ssb-state-b71ed7e01dd3d4bd"
+      }
+    },
+    {
+      "base_id": "ssb-base-08846d33622b963f",
+      "source_repository": "https://github.com/adobe/skills",
+      "source_commit": "40739542234b273fee42beeb1d3791c613799837",
+      "tasks": {
+        "script_fault": "ssb-state-189194df7db2d0c3",
+        "doc_fault": "ssb-state-7869565dbe0944ed",
+        "clean": "ssb-state-878c851cebd3676c",
+        "joint_fault": "ssb-state-c4fdefe94aaa948f"
+      }
+    },
+    {
+      "base_id": "ssb-base-127d84d894b7d30a",
+      "source_repository": "https://github.com/NVIDIA/skills",
+      "source_commit": "0a78f333a1d67c837fbf4288efe6488169dc7140",
+      "tasks": {
+        "joint_fault": "ssb-state-4557aed354891b4c",
+        "clean": "ssb-state-4eac344c3831a3c9",
+        "script_fault": "ssb-state-7de0b71f026521d9",
+        "doc_fault": "ssb-state-e40aaef73224b942"
+      }
+    },
+    {
+      "base_id": "ssb-base-4050f8508e09a116",
+      "source_repository": "https://github.com/fastly/fastly-agent-toolkit",
+      "source_commit": "ea3623d5facc7053eaa802f5fc483dd7121a39aa",
+      "tasks": {
+        "doc_fault": "ssb-state-257875aa8c963775",
+        "joint_fault": "ssb-state-63f306c79c33cb27",
+        "script_fault": "ssb-state-e32484a5a46a8400",
+        "clean": "ssb-state-ee8a3653fd0a85a8"
+      }
+    },
+    {
+      "base_id": "ssb-base-50a321041125b432",
+      "source_repository": "https://github.com/github/awesome-copilot",
+      "source_commit": "9db369d00f121542e1c99fd9b6cd6f707bade765",
+      "tasks": {
+        "clean": "ssb-state-0a6036c547d6f6d0",
+        "doc_fault": "ssb-state-427ad88442cbe994",
+        "script_fault": "ssb-state-4c5b99e39efd83e5",
+        "joint_fault": "ssb-state-f969acffcf0bf9a1"
+      }
+    },
+    {
+      "base_id": "ssb-base-5e8dc4b91db2149e",
+      "source_repository": "https://github.com/NVIDIA/skills",
+      "source_commit": "0a78f333a1d67c837fbf4288efe6488169dc7140",
+      "tasks": {
+        "doc_fault": "ssb-state-4a5c178c2e058bfb",
+        "clean": "ssb-state-76438326864931d1",
+        "joint_fault": "ssb-state-bf140dda779e1048",
+        "script_fault": "ssb-state-e7fc05a8766c7b4c"
+      }
+    },
+    {
+      "base_id": "ssb-base-69fc82ae919f5b06",
+      "source_repository": "https://github.com/github/awesome-copilot",
+      "source_commit": "9db369d00f121542e1c99fd9b6cd6f707bade765",
+      "tasks": {
+        "joint_fault": "ssb-state-0dc9f4353c2b8e33",
+        "script_fault": "ssb-state-85287c8ed6ddec32",
+        "doc_fault": "ssb-state-caeff460644468ef",
+        "clean": "ssb-state-e131d9f6381c08e4"
+      }
+    },
+    {
+      "base_id": "ssb-base-86e13feed3441e2c",
+      "source_repository": "https://github.com/elastic/agent-skills",
+      "source_commit": "96736bec4aa27f236580a3fefc4b14582f0f8aa0",
+      "tasks": {
+        "doc_fault": "ssb-state-4a45c8073d34daf9",
+        "script_fault": "ssb-state-750df19b448b96b1",
+        "joint_fault": "ssb-state-9cfaef05b3749354",
+        "clean": "ssb-state-a376528b589ed48c"
+      }
+    },
+    {
+      "base_id": "ssb-base-88ce0e9daf410ba0",
+      "source_repository": "https://github.com/letta-ai/skills",
+      "source_commit": "16352df0a3ce49c321281d9b45f73462bda582e5",
+      "tasks": {
+        "doc_fault": "ssb-state-442448a095757d68",
+        "clean": "ssb-state-63bcc9f5ef7278bc",
+        "script_fault": "ssb-state-64ea000fb03ca144",
+        "joint_fault": "ssb-state-d614f547984c9f9a"
+      }
+    },
+    {
+      "base_id": "ssb-base-9417ba6306f9f0ca",
+      "source_repository": "https://github.com/addyosmani/agent-skills",
+      "source_commit": "f03b4a84b08b76608bbab3133e56e49e361f230b",
+      "tasks": {
+        "script_fault": "ssb-state-61be83358cd103ec",
+        "doc_fault": "ssb-state-82b3404ab8687c78",
+        "clean": "ssb-state-bf3a67f04e6db4bd",
+        "joint_fault": "ssb-state-f96c6cadb6c96de8"
+      }
+    },
+    {
+      "base_id": "ssb-base-958880d3067a319f",
+      "source_repository": "https://github.com/elastic/agent-skills",
+      "source_commit": "96736bec4aa27f236580a3fefc4b14582f0f8aa0",
+      "tasks": {
+        "joint_fault": "ssb-state-5a3b4ba0104c1e16",
+        "doc_fault": "ssb-state-686a44467164defa",
+        "script_fault": "ssb-state-952611cb0f56709a",
+        "clean": "ssb-state-dddc2d9c5f9c5f8b"
+      }
+    },
+    {
+      "base_id": "ssb-base-9a2c4c329decffc7",
+      "source_repository": "https://github.com/NVIDIA/skills",
+      "source_commit": "0a78f333a1d67c837fbf4288efe6488169dc7140",
+      "tasks": {
+        "script_fault": "ssb-state-a47b1ed59224c5ff",
+        "joint_fault": "ssb-state-b90b347121d974a4",
+        "doc_fault": "ssb-state-dbdf8828896156c3",
+        "clean": "ssb-state-e67a4f89d0b13633"
+      }
+    },
+    {
+      "base_id": "ssb-base-b896f54a4c08b391",
+      "source_repository": "https://github.com/jakenuts/agent-skills",
+      "source_commit": "10749bf616e8b15a79786800be0e9b8dd06e0c08",
+      "tasks": {
+        "clean": "ssb-state-22f0a01e41504a6a",
+        "doc_fault": "ssb-state-7e1f42c11056c1e6",
+        "joint_fault": "ssb-state-cc6da92d1f16e50a",
+        "script_fault": "ssb-state-f471b10752d75e85"
+      }
+    },
+    {
+      "base_id": "ssb-base-c11aa38ac2b072fd",
+      "source_repository": "https://github.com/julianobarbosa/claude-code-skills",
+      "source_commit": "ac701ada10169dc2a7008cb3f8279acdfb3846f5",
+      "tasks": {
+        "doc_fault": "ssb-state-3418cb8c5bd20de6",
+        "clean": "ssb-state-41476cc1f9187a6d",
+        "script_fault": "ssb-state-bd2701b98c7cc50f",
+        "joint_fault": "ssb-state-cff7566b7d078144"
+      }
+    },
+    {
+      "base_id": "ssb-base-c73c4cabdd4a3971",
+      "source_repository": "https://github.com/awslabs/agent-plugins",
+      "source_commit": "34afdf5005325f17d5da2d1443b87f27a53b0a20",
+      "tasks": {
+        "doc_fault": "ssb-state-2a73944cf7e99dc5",
+        "joint_fault": "ssb-state-4557cb4e718e62c2",
+        "script_fault": "ssb-state-f8cdbd5eaf4cece6",
+        "clean": "ssb-state-fe5195b1f1c91882"
+      }
+    },
+    {
+      "base_id": "ssb-base-d10cf419259ba890",
+      "source_repository": "https://github.com/letta-ai/skills",
+      "source_commit": "16352df0a3ce49c321281d9b45f73462bda582e5",
+      "tasks": {
+        "joint_fault": "ssb-state-21f0e4183d7b6c9a",
+        "doc_fault": "ssb-state-37ed421aa90d8f62",
+        "clean": "ssb-state-4727e0410ccc0745",
+        "script_fault": "ssb-state-6502ff15137aedb4"
+      }
+    },
+    {
+      "base_id": "ssb-base-ed60374587d1a824",
+      "source_repository": "https://github.com/anthropics/claude-plugins-official",
+      "source_commit": "36b00173da517876f9e574ef98f3564b0e86c25d",
+      "tasks": {
+        "doc_fault": "ssb-state-1f1fb9a1faef9104",
+        "script_fault": "ssb-state-7a60848d9f4be8d5",
+        "joint_fault": "ssb-state-96d60986b27587f4",
+        "clean": "ssb-state-fdc1089c01385927"
+      }
+    },
+    {
+      "base_id": "ssb-base-f967782dcac2af07",
+      "source_repository": "https://github.com/elastic/agent-skills",
+      "source_commit": "96736bec4aa27f236580a3fefc4b14582f0f8aa0",
+      "tasks": {
+        "joint_fault": "ssb-state-346ea88ed876ff00",
+        "doc_fault": "ssb-state-8862e6052f46bf27",
+        "script_fault": "ssb-state-b705d0f121a2ae40",
+        "clean": "ssb-state-d8e0734314b6de42"
+      }
+    },
+    {
+      "base_id": "ssb-base-fa4e7adb420d9c38",
+      "source_repository": "https://github.com/adobe/skills",
+      "source_commit": "40739542234b273fee42beeb1d3791c613799837",
+      "tasks": {
+        "script_fault": "ssb-state-026b0efa79680e46",
+        "clean": "ssb-state-043c1f4071b3bd3b",
+        "joint_fault": "ssb-state-366c8aff65067337",
+        "doc_fault": "ssb-state-97935129aaf0a3ad"
+      }
+    },
+    {
+      "base_id": "ssb-base-fbcdea76f5d765f5",
+      "source_repository": "https://github.com/letta-ai/skills",
+      "source_commit": "16352df0a3ce49c321281d9b45f73462bda582e5",
+      "tasks": {
+        "script_fault": "ssb-state-7e8fbd244e93839a",
+        "joint_fault": "ssb-state-a7b4351420c342fc",
+        "doc_fault": "ssb-state-ba889a46fb615804",
+        "clean": "ssb-state-dab120be1d78ef0b"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-157454365bfcf0bd",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "clean": "ssb-deep60-case-2ddc98d02aa2c72c",
+        "doc_fault": "ssb-deep60-case-3945e621dbe591f2",
+        "joint_fault": "ssb-deep60-case-44666d135376b1f8",
+        "script_fault": "ssb-deep60-case-da820003ecf7eff1"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-237aadb192520337",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "script_fault": "ssb-deep60-case-33ac9a65ce503be0",
+        "clean": "ssb-deep60-case-59954ae2cd83dbed",
+        "joint_fault": "ssb-deep60-case-e2f444b823fb46bc",
+        "doc_fault": "ssb-deep60-case-e498f35fbe365bd1"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-29a649bbc03d507a",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "script_fault": "ssb-deep60-case-5a656b1389025f63",
+        "doc_fault": "ssb-deep60-case-69ff23c2ea069e8e",
+        "clean": "ssb-deep60-case-aa804e4fdbdcca9b",
+        "joint_fault": "ssb-deep60-case-ae10df1789213321"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-467d430ffc40b7ad",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "clean": "ssb-deep60-case-385fa20faf0fb44f",
+        "script_fault": "ssb-deep60-case-c7ac31e98411fbc8",
+        "doc_fault": "ssb-deep60-case-dc13702398275310",
+        "joint_fault": "ssb-deep60-case-ddcc3868cfc01f43"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-46a63e7b5abc234c",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "script_fault": "ssb-deep60-case-228d0ffc53d66279",
+        "joint_fault": "ssb-deep60-case-3d70e9ee5960a955",
+        "doc_fault": "ssb-deep60-case-a1d55eed1b99a267",
+        "clean": "ssb-deep60-case-f9a9ccb75125f1c0"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-8cc5461a63fc7624",
+      "source_repository": "https://github.com/dianel555/dskills",
+      "source_commit": "f2b1e797a392793481df15689b644d2305a3ed12",
+      "tasks": {
+        "clean": "ssb-deep60-case-2267af0f8a984464",
+        "script_fault": "ssb-deep60-case-4663341edfb2b6f1",
+        "joint_fault": "ssb-deep60-case-5e2135622b4d04df",
+        "doc_fault": "ssb-deep60-case-e12dad4e79df4450"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-8d91aef2460f9f34",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "doc_fault": "ssb-deep60-case-0c09b835766fbeb3",
+        "clean": "ssb-deep60-case-18b5b153d97659d7",
+        "joint_fault": "ssb-deep60-case-bf46c727d4e00e1c",
+        "script_fault": "ssb-deep60-case-f8e43276eccd8365"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-936fac9185f1b89c",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "doc_fault": "ssb-deep60-case-4e4f7ead8f6c9eeb",
+        "script_fault": "ssb-deep60-case-4f38d2208748ddec",
+        "clean": "ssb-deep60-case-58c9eff1f2dd7e55",
+        "joint_fault": "ssb-deep60-case-68a63e09abb30c8e"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-9729762ce958c22e",
+      "source_repository": "https://github.com/darellchua2/opencode-config-template",
+      "source_commit": "c23c8597a0daf6d5bffc5e8e734fc0dbd73d2f76",
+      "tasks": {
+        "clean": "ssb-deep60-case-3d7c863ef89fa7fd",
+        "script_fault": "ssb-deep60-case-a3b20cbc89d222e6",
+        "doc_fault": "ssb-deep60-case-ac9ca783e9209184",
+        "joint_fault": "ssb-deep60-case-e79aac0c3a12e8d1"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-b695a29f9385d4a7",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "joint_fault": "ssb-deep60-case-201e0557f330b9a5",
+        "script_fault": "ssb-deep60-case-257e64ffab1a3528",
+        "clean": "ssb-deep60-case-35f8e07635d2c1cf",
+        "doc_fault": "ssb-deep60-case-4be690e181006943"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-bcef286f08178ad7",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "doc_fault": "ssb-deep60-case-006bc33274808722",
+        "script_fault": "ssb-deep60-case-6e7b23ac72af3a47",
+        "clean": "ssb-deep60-case-76aaacff754b74d8",
+        "joint_fault": "ssb-deep60-case-b4e6ba502912fae1"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-cdcb6fe15625c2dc",
+      "source_repository": "https://github.com/NousResearch/hermes-agent",
+      "source_commit": "01a1037d1e6d7b6eb96a786ef282c3aea4818194",
+      "tasks": {
+        "clean": "ssb-deep60-case-3cff0e1126ac19e9",
+        "doc_fault": "ssb-deep60-case-577f54d067178c81",
+        "script_fault": "ssb-deep60-case-59d68eb34c143ef9",
+        "joint_fault": "ssb-deep60-case-79e858ccb1ddfce4"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-d55c71d55836c5c1",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "joint_fault": "ssb-deep60-case-44a93a45bffa783d",
+        "script_fault": "ssb-deep60-case-477e5368654ce73a",
+        "doc_fault": "ssb-deep60-case-86a21591c72f64a2",
+        "clean": "ssb-deep60-case-e56ad7be6079559e"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-f2501523f401da2f",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "doc_fault": "ssb-deep60-case-35a2f3a68b737d17",
+        "script_fault": "ssb-deep60-case-3edf89f2eaf2256a",
+        "joint_fault": "ssb-deep60-case-a9b6d4ee474dbd50",
+        "clean": "ssb-deep60-case-e4dcf316d9082a8d"
+      }
+    },
+    {
+      "base_id": "ssb-deep60-base-f50a8a99aa162911",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "doc_fault": "ssb-deep60-case-1964cc41c4230ac6",
+        "script_fault": "ssb-deep60-case-2da337283cb19933",
+        "joint_fault": "ssb-deep60-case-7fef6db08be13d38",
+        "clean": "ssb-deep60-case-e93196991f8d81cc"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-1051e707ee597b9f",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "clean": "ssb-hard60-case-601fc286773c7c0c",
+        "doc_fault": "ssb-hard60-case-6f882571bd6a23f2",
+        "script_fault": "ssb-hard60-case-a4dc20f723742dec",
+        "joint_fault": "ssb-hard60-case-ceb86fa1d9dac161"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-2aaadcedd1f802ce",
+      "source_repository": "https://github.com/alirezarezvani/claude-skills",
+      "source_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+      "tasks": {
+        "script_fault": "ssb-hard60-case-27deec61d7748834",
+        "doc_fault": "ssb-hard60-case-4413dd92bdeeb715",
+        "clean": "ssb-hard60-case-8f5b790980dfa58e",
+        "joint_fault": "ssb-hard60-case-b5c5fe2cdacf5bad"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-419cfe06f63c460e",
+      "source_repository": "https://github.com/elastic/agent-skills.git",
+      "source_commit": "96736bec4aa27f236580a3fefc4b14582f0f8aa0",
+      "tasks": {
+        "joint_fault": "ssb-hard60-case-29cee80e19023fd5",
+        "doc_fault": "ssb-hard60-case-68899e58662c11b5",
+        "script_fault": "ssb-hard60-case-d1a8704b6dc3c7a3",
+        "clean": "ssb-hard60-case-da5f977bbb1b8060"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-44ae3540acae7f6f",
+      "source_repository": "None",
+      "source_commit": "None",
+      "tasks": {
+        "joint_fault": "ssb-hard60-case-5ba260032270cc11",
+        "clean": "ssb-hard60-case-6d128ee5bea2b442",
+        "doc_fault": "ssb-hard60-case-d994a7b6e079d36a",
+        "script_fault": "ssb-hard60-case-db82e94ceea511fd"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-5471bdd643a2e017",
+      "source_repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source_commit": "d767725c6e93b1d02a220e6be75b261a9833ede5",
+      "tasks": {
+        "clean": "ssb-hard60-case-064ca11eeccc3247",
+        "script_fault": "ssb-hard60-case-3a14219884292ff4",
+        "joint_fault": "ssb-hard60-case-3b7dcc0bbcd59fdf",
+        "doc_fault": "ssb-hard60-case-b7642a0d8939b76c"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-56ead6cdebb36710",
+      "source_repository": "https://github.com/alirezarezvani/claude-skills",
+      "source_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+      "tasks": {
+        "script_fault": "ssb-hard60-case-0ed55f1dfd7abf1c",
+        "clean": "ssb-hard60-case-1f17a5aa30fae801",
+        "doc_fault": "ssb-hard60-case-b21a31fc5343071c",
+        "joint_fault": "ssb-hard60-case-f6850ed1c655b434"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-61ac494d57639881",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "joint_fault": "ssb-hard60-case-006a0f1a977c92e0",
+        "doc_fault": "ssb-hard60-case-5047542ace3331b9",
+        "clean": "ssb-hard60-case-6cedfee71f4a46bd",
+        "script_fault": "ssb-hard60-case-e7c974163265d231"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-7b5033c726659cf1",
+      "source_repository": "https://github.com/alirezarezvani/claude-skills",
+      "source_commit": "aa8d778811a557a2c28ccadda4cf3d0bd028a4cc",
+      "tasks": {
+        "joint_fault": "ssb-hard60-case-42d4dff133e369d8",
+        "doc_fault": "ssb-hard60-case-726735296391062b",
+        "script_fault": "ssb-hard60-case-a07073f15e7bbd7c",
+        "clean": "ssb-hard60-case-a77a991b11d9c630"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-83189b999489ea40",
+      "source_repository": "None",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "clean": "ssb-hard60-case-141af48c27948e8e",
+        "doc_fault": "ssb-hard60-case-5adb0f06658a930b",
+        "joint_fault": "ssb-hard60-case-c0df760747ff9017",
+        "script_fault": "ssb-hard60-case-f5f8587dc36ca396"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-898d34e1f8687377",
+      "source_repository": "https://github.com/tradermonty/claude-trading-skills",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "script_fault": "ssb-hard60-case-168be6d7158a7c81",
+        "joint_fault": "ssb-hard60-case-351f941f1d57eb4d",
+        "doc_fault": "ssb-hard60-case-80c0a58bbbacde1f",
+        "clean": "ssb-hard60-case-cbdfc90795c985ea"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-b07adbdc2f385eb0",
+      "source_repository": "https://github.com/NVIDIA/skills",
+      "source_commit": "0a78f333a1d67c837fbf4288efe6488169dc7140",
+      "tasks": {
+        "clean": "ssb-hard60-case-01520bf61532b456",
+        "doc_fault": "ssb-hard60-case-05e4adead74071a3",
+        "joint_fault": "ssb-hard60-case-35455f43abb19a94",
+        "script_fault": "ssb-hard60-case-8c3022c9c27511d7"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-b61dcd452636a1e1",
+      "source_repository": "None",
+      "source_commit": "7a5457ff404bc16a3764db7d16494db84144baf9",
+      "tasks": {
+        "clean": "ssb-hard60-case-16be8204dce84c5d",
+        "script_fault": "ssb-hard60-case-3af501070cb32f0c",
+        "doc_fault": "ssb-hard60-case-5e4b48e710487220",
+        "joint_fault": "ssb-hard60-case-9663fb63231be1fa"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-d31244d06996c69e",
+      "source_repository": "https://github.com/NousResearch/hermes-agent",
+      "source_commit": "01a1037d1e6d7b6eb96a786ef282c3aea4818194",
+      "tasks": {
+        "script_fault": "ssb-hard60-case-31f240109c9c60d1",
+        "joint_fault": "ssb-hard60-case-3c134517349c554b",
+        "clean": "ssb-hard60-case-66f2cc37d02b43fc",
+        "doc_fault": "ssb-hard60-case-ae5ce5ba27cf322c"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-da42e4a2ef43fb47",
+      "source_repository": "https://github.com/elastic/agent-skills.git",
+      "source_commit": "96736bec4aa27f236580a3fefc4b14582f0f8aa0",
+      "tasks": {
+        "script_fault": "ssb-hard60-case-2b7a241c7dc5b7dd",
+        "joint_fault": "ssb-hard60-case-347a442406e41c58",
+        "clean": "ssb-hard60-case-35242ba2f302369d",
+        "doc_fault": "ssb-hard60-case-76bbd5c32af14b69"
+      }
+    },
+    {
+      "base_id": "ssb-hard60-base-e090a4e8446db328",
+      "source_repository": "https://github.com/glebis/claude-skills",
+      "source_commit": "46edb03cc915adbd78ee81e3406bc4480aefcaba",
+      "tasks": {
+        "doc_fault": "ssb-hard60-case-18c2763c31ddc893",
+        "joint_fault": "ssb-hard60-case-2819a87d7d1dfbe8",
+        "script_fault": "ssb-hard60-case-d3d877b753b8ba9b",
+        "clean": "ssb-hard60-case-f7bbee8d1f731c75"
+      }
+    }
+  ]
+}

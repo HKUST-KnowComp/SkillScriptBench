@@ -80,6 +80,12 @@ def _project_file(
     candidate_source: str,
     edits: list[dict[str, Any]],
 ) -> tuple[str, list[dict[str, Any]], list[str]]:
+    # A unique line elsewhere in a changed file does not identify the original
+    # parser-bound target. Until cross-snapshot node identity is available, only
+    # project into an unchanged file (or recognize the entire completed delta).
+    # Other proposal files remain untouched by this file-local restriction.
+    if raw_source not in (parent_source, candidate_source):
+        return raw_source, [], [f"{path}:changed_raw_file_requires_node_identity"]
     effective_edits: list[dict[str, Any]] = []
     parent_bytes = parent_source.encode("utf-8")
     for original in edits:
@@ -110,27 +116,21 @@ def _project_file(
     if findings:
         return raw_source, [], sorted(set(findings))
 
-    projected_lines = raw_source.splitlines(keepends=True)
+    projected_lines = candidate_source.splitlines(keepends=True)
     receipts: list[dict[str, Any]] = []
     for index, hunk in enumerate(hunks, start=1):
         parent_block = list(hunk["parent_lines"])
         candidate_block = list(hunk["candidate_lines"])
-        parent_hits = _find_subsequence(projected_lines, parent_block)
-        candidate_hits = _find_subsequence(projected_lines, candidate_block)
-        if len(parent_hits) == 1:
-            offset = parent_hits[0]
-            projected_lines[offset : offset + len(parent_block)] = candidate_block
-            action = "applied_parent_delta"
-            projected_start = offset + 1
-        elif not parent_hits and len(candidate_hits) == 1:
+        if raw_source == candidate_source:
+            # The complete candidate already establishes identity, even if the
+            # old text also survives in a different function in that candidate.
             action = "already_applied_in_raw"
-            projected_start = candidate_hits[0] + 1
+            projected_start = hunk["candidate_line_start"]
         else:
-            findings.append(
-                f"{path}:ambiguous_or_conflicting_hunk:{index}:"
-                f"parent_hits={len(parent_hits)}:candidate_hits={len(candidate_hits)}"
-            )
-            continue
+            # raw_source == parent_source: use the validated candidate directly,
+            # never search identical lines in other functions for a target.
+            action = "applied_parent_delta"
+            projected_start = hunk["candidate_line_start"]
         receipts.append(
             {
                 "hunk_index": index,
@@ -271,8 +271,9 @@ def rebase_exact_node_delta(
         "semantic_correctness_inferred": False,
         "claim_boundary": (
             "This operation rebases a previously frozen exact-node candidate delta onto "
-            "a public Raw package and rejects overlapping or ambiguous hunks. It preserves "
-            "non-overlapping Raw edits but does not establish task-level semantic correctness."
+            "a public Raw package only when each affected file equals its parent or "
+            "complete candidate. Other Raw files are preserved. Changed affected files "
+            "are conservatively rejected; task-level semantic correctness is not established."
         ),
     }
     report["rebase_hash"] = canonical_json_hash(report)

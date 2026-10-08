@@ -135,7 +135,10 @@ def test_transport_uses_configured_endpoint_without_network(tmp_path, monkeypatc
                 'message': {'tool_calls': [{'function': {'name': name, 'arguments': '{}'}}]}}]}
         return Response(json.dumps(body).encode())
 
-    monkeypatch.setattr(transport.urllib.request, 'urlopen', fake_urlopen)
+    class Opener:
+        open = staticmethod(fake_urlopen)
+
+    monkeypatch.setattr(transport.urllib.request, 'build_opener', lambda *handlers: Opener())
     callback = api.script_runner.provider_callback(run, 'test-only', base_url='https://example.invalid/v1/')
     assert callback('Example prompt', {'function': {'name': 'example_tool'}}, 'discovery') == {}
     assert observed == ['https://example.invalid/v1/chat/completions']

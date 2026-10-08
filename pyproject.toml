@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skillscriptbench"
+version = "0.1.0"
+description = "Benchmark inputs and AST-guided revision for executable agent skill packages"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+authors = [{name = "SkillScriptBench authors"}]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2610.04008"
+
+[project.optional-dependencies]
+revision = ["tree-sitter>=0.23,<0.26", "tree-sitter-bash>=0.23,<0.26", "markdown-it-py>=3,<5"]
+evaluation = ["markdown-it-py==3.0.0", "mdurl==0.1.2", "python-pptx==1.0.2", "lxml==6.1.3", "Pillow==12.3.0", "XlsxWriter==3.2.9", "PyYAML==6.0.3"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+skillscriptbench = "ssbench.cli:main"
+
+[tool.setuptools]
+packages = ["ssbench", "ssbench._runtime"]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+"ssbench._runtime" = "code"
+
+[tool.setuptools.package-data]
+"ssbench._runtime" = ["runtime/**/*.py", "runtime/**/*.json", "runtime/**/*.js", "runtime/**/*.cjs", "runtime/**/*.mjs", "prompts/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "code"]
+norecursedirs = ["runtime", "benchmark", "node_modules", ".venv"]

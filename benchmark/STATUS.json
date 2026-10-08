@@ -1,8 +1,16 @@
 {
-  "scope": "Table 2 repair tasks only",
-  "expected_tasks": 300,
-  "available_tasks": 300,
+  "scope": "350 benchmark task inputs; 300-task Table 2 subset retained",
+  "expected_tasks": 350,
+  "available_tasks": 350,
   "missing_tasks": 0,
   "complete": true,
-  "missing_by_state": {}
+  "state_counts": {
+    "source_repair": 150,
+    "doc_fault": 50,
+    "clean": 50,
+    "joint_fault": 50,
+    "script_fault": 50
+  },
+  "package_and_request_hashes_verified": true,
+  "evaluation_bundle": "not included"
 }

@@ -26,7 +26,7 @@ def prepare(parent, proposal, request, output, model='gpt-5.6-sol'):
         'name': 'AST-Guided Skill Revision', 'implementation': 'llm-discovery-plus-document-alignment',
         'scripts': 'semantic_discovery_native_runner_v1110', 'document': document.METHOD,
         'semantic_discovery': 'LLM', 'regex_semantic_miner': False,
-        'release_version': '2026-09-26.2',
+        'release_version': '2026-09-27.1',
         'result_provenance': 'archived experiment outcomes; see VERSIONS.md'})
     return result
 

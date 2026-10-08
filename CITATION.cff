@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use SkillScriptBench, please cite the accompanying paper."
+type: software
+title: "SkillScriptBench: Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown"
+version: 0.1.0
+url: "https://arxiv.org/abs/2610.04008"
+authors:
+  - family-names: Liu
+    given-names: Yuxuan
+  - family-names: Li
+    given-names: Haoran
+  - family-names: Zhang
+    given-names: Yuhao
+  - family-names: Guo
+    given-names: Jiahe
+  - family-names: Luo
+    given-names: Hongyu
+  - family-names: Hu
+    given-names: Wenbin
+  - family-names: Jing
+    given-names: Huihao
+  - family-names: Chung
+    given-names: Kawai
+  - family-names: Chen
+    given-names: Junle
+  - family-names: Fan
+    given-names: Changxuan
+  - family-names: Zong
+    given-names: Qing
+  - family-names: Xie
+    given-names: Lingyun
+  - family-names: Song
+    given-names: Yangqiu

@@ -40,7 +40,10 @@ def build_prompt(request_text, skill_text, scripts):
         "Each CONTRADICTED review must be addressed by an edit; edits may refer only to CONTRADICTED IDs. "
         "Do not rewrite abstract descriptions while leaving known invalid commands unchanged. "
         "Use at most eight nonoverlapping line-addressed edits. Copy old_text exactly from those lines, "
-        "without line-number prefixes. Do not remove workflows or weaken public requirements. "
+        "without line-number prefixes. "
+        "Edit only within the Markdown block spans (line through end_line) of the cited invocation IDs; "
+        "every cited span must intersect the edit. Inline spans include their explanatory paragraph. "
+        "Do not remove workflows or weaken public requirements. "
         "Do not edit protected Required Use Case markers or their contents. "
         "The program validates references, not behavioral correctness. No task tests, gold, oracle or reward are provided. "
         "Keep reasons and summary concise; summary length never determines patch acceptance. "
@@ -106,6 +109,12 @@ def validate_assessment(payload, *, request_text, skill_text, scripts):
         ids = edit['evidence_ids']
         if not isinstance(ids, list) or not ids or any(i not in reviews or reviews[i]['status'] != 'CONTRADICTED' for i in ids):
             raise ValueError('invocation_edit_not_backed_by_contradiction')
+        spans = [(items[i]['line'], items[i]['end_line']) for i in ids]
+        if any(b < start or a > end for start, end in spans) or any(
+            not any(start <= line <= end for start, end in spans)
+            for line in range(a, b + 1)
+        ):
+            raise ValueError('invocation_edit_outside_cited_blocks')
         occupied.append((a, b)); covered.update(ids); edits.append(copy.deepcopy(edit))
     if covered != {i for i, r in reviews.items() if r['status'] == 'CONTRADICTED'}:
         raise ValueError('identified_contradiction_not_addressed')

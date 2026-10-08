@@ -16,7 +16,7 @@ def inventory(text):
             kind = 'python_example' if language == 'python' else 'command_block'
             if language not in ('python', 'bash', 'sh', 'shell', 'zsh', 'console', 'powershell', 'ps1'):
                 kind = 'unclassified_block'
-            rows.append(dict(kind=kind, line=token.map[0] + 1, text=token.content.rstrip('\n')))
+            rows.append(dict(kind=kind, line=token.map[0] + 1, end_line=token.map[1], text=token.content.rstrip('\n')))
         elif token.type == 'inline':
             for child in token.children or []:
                 if child.type != 'code_inline':
@@ -30,7 +30,9 @@ def inventory(text):
                     kind = 'inline_command' if re.search(r'\s', value) else 'path_reference'
                 else:
                     continue
-                rows.append(dict(kind=kind, line=token.map[0] + 1, text=value))
+                # Keep the containing Markdown block so a correction may also
+                # repair the prose explaining an inline option or command.
+                rows.append(dict(kind=kind, line=token.map[0] + 1, end_line=token.map[1], text=value))
     for index, row in enumerate(rows):
         row['id'] = f"invocation-{index + 1}"
     return rows
