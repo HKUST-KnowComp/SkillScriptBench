@@ -33,7 +33,7 @@ tasks/<task_id>/package/     Complete input package
 
 `TASKS.json` paths are relative to this directory. Each row has `task_id`, `request`, `package`, `available`, `expected_request_sha256`, and `expected_package_tree_hash`. The package hash is SHA-256 over a canonical JSON mapping of relative paths to file SHA-256 values; cache directories are excluded as defined in `ssbench/benchmark.py`.
 
-All **350** package/request pairs match their recorded hashes. The 300-task main-results subset is unchanged; the additional 50 inputs complete Clean-state coverage.
+The collection contains 350 package/request pairs. Use `verify --split all` to check input integrity.
 
 ## Load a task
 
@@ -77,4 +77,4 @@ Source notices and task package files are preserved unchanged. Attribution and g
 
 ## Evaluation
 
-Task success requires behavioral and documentation-driven checks. Input integrity verification is not task scoring. This preparation includes all inputs and the main-result outcome snapshot; the standalone task-evaluation bundle remains a separate release item. [Evaluation →](../docs/evaluation.md)
+Task success requires behavioral and documentation-driven checks. The scoring CLI uses a separate bundle of task-specific checks, fixtures, and runtime assets. [Setup and scoring →](../docs/evaluation.md)

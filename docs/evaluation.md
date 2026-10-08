@@ -68,4 +68,4 @@ Across N tasks with three runs each:
 - **Hit³:** tasks with all three runs successful divided by N.
 
 Report percentages, with Clean preservation separate from repair results.
-The included [outcomes](../results/) cover the 300-task main repair table.
+Use the `main_results` subset for the 300 repair tasks and `clean` for the 50 preservation tasks.

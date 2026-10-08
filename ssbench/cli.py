@@ -1,4 +1,4 @@
-"""Browse task inputs, create workspaces, or invoke the revision runtime."""
+"""Load benchmark tasks and evaluate candidate packages."""
 import argparse
 import json
 import sys
@@ -11,16 +11,8 @@ def main(argv=None):
     if argv and argv[0] == 'evaluation':
         from .evaluation import main as evaluation_main
         return evaluation_main(argv[1:])
-    if argv and argv[0] == 'revise':
-        from ssbench._runtime import run_revision
-        original = sys.argv
-        try:
-            sys.argv = ['skillscriptbench revise', *argv[1:]]
-            return run_revision.main()
-        finally:
-            sys.argv = original
     parser = argparse.ArgumentParser(description=__doc__,
-        epilog='Revision: skillscriptbench revise --help; evaluation assets: skillscriptbench evaluation --help')
+        epilog='Scoring: skillscriptbench evaluation --help')
     parser.add_argument('--benchmark', default='benchmark', help='path to the benchmark directory')
     subs = parser.add_subparsers(dest='action', required=True)
     for name in ('list', 'verify'):
