@@ -2,7 +2,7 @@
 
 **Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown**
 
-[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Download assets](https://github.com/xuansenpa1/skillscriptbench-review/releases/tag/benchmark-v0.1.0)
+[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Example](examples/README.md)
 
 SkillScriptBench evaluates repair and preservation of executable agent skill packages containing Markdown instructions and scripts. This repository contains the benchmark and evaluation tools.
 
@@ -27,24 +27,45 @@ skillscriptbench materialize d16-matlab-multiroute --output runs/example
 
 The workspace contains only the request and package. The `main_results` subset selects 300 repair tasks; `clean` selects 50 preservation tasks. See the [dataset guide](benchmark/README.md) for the Python API and metadata.
 
-## Evaluate a package
+## Try the evaluator
 
-Evaluation requires Linux x86-64, Docker, and the separate evaluator and runtime assets. Follow the [setup guide](docs/evaluation.md) to obtain and load them, then run:
+On Linux x86-64 with Python 3.12, Docker, and authenticated GitHub CLI access:
 
 ```bash
 python -m pip install -e '.[evaluation]'
-python evaluate.py --bundle /path/to/evaluator --task TASK_ID \
+python scripts/fetch_assets.py --demo --load
+python examples/check_installation.py --bundle assets/evaluator \
+  --output runs/installation-example
+```
+
+The example uses two original benchmark inputs: the Clean package should **pass**,
+and its script-fault counterpart should **fail**. It downloads only their two
+runtime images and the evaluator (about 1.19 GB combined), rather than the
+complete runtime archive.
+See the [example guide](examples/README.md).
+
+## Evaluate your packages
+
+Select the tasks whose environments you need, then score your revised packages:
+
+```bash
+python scripts/fetch_assets.py --task TASK_ID --load
+python evaluate.py --bundle assets/evaluator --task TASK_ID \
   --candidate /path/to/revised/package --output runs/evaluation
 ```
 
 A task succeeds when both behavioral and documentation-driven checks pass. The command produces `scores.csv`, `summary.json`, and per-task logs. For multiple packages, supply a [candidate manifest](docs/evaluation.md#batch-evaluation):
 
 ```bash
-python evaluate.py --bundle /path/to/evaluator --manifest candidates.json \
+python evaluate.py --bundle assets/evaluator --manifest candidates.json \
   --output runs/batch --workers 2
 ```
 
 Three runs per task produce Avg, P@3, and Hit³, with Clean preservation reported separately from repair.
+
+The downloader reuses installed images and verified files. Tasks without an
+independent image asset use the full runtime archive; `--plan` shows the required
+download before execution. See [setup and task inspection](docs/evaluation.md).
 
 ## Contents
 
@@ -54,6 +75,8 @@ ssbench/     Task loader and scoring CLI
 evaluate.py  Single-task and batch evaluation
 docs/        Evaluation setup and usage
 scripts/     Runtime asset loader
+examples/    Two-task installation example
+distribution/ Pinned download catalog
 tests/       Loader and evaluator tests
 ```
 

@@ -6,26 +6,43 @@ while preserving correct parts of the package.
 
 ## Setup
 
-Use Linux x86-64, Python 3.12, and Docker. Download the evaluator, fixtures, and
-pinned runtime images from the [Release](https://github.com/xuansenpa1/skillscriptbench-review/releases/tag/benchmark-v0.1.0).
-The private repository requires authenticated access:
+Use Linux x86-64, Python 3.12, Docker, and the GitHub CLI (`gh`). The private
+repository requires authenticated access. Start with the two-task example:
 
 ```bash
-gh release download benchmark-v0.1.0 --repo xuansenpa1/skillscriptbench-review \
-  --pattern 'SkillScriptBench_evaluator.tar.gz' --pattern 'RUNTIME_PARTS.json' \
-  --pattern 'SkillScriptBench_runtime_images.tar.gz.part*' --dir assets
 python -m pip install -e '.[evaluation]'
-tar -xzf assets/SkillScriptBench_evaluator.tar.gz
-python scripts/load_runtimes.py --manifest assets/RUNTIME_PARTS.json --load
-skillscriptbench evaluation --bundle ./evaluator doctor
+python scripts/fetch_assets.py --demo --plan
+python scripts/fetch_assets.py --demo --load
+python examples/check_installation.py --bundle assets/evaluator \
+  --output runs/installation-example
 ```
 
-The compressed runtime is about 13.8 GB; allow additional space for Docker layers
-and job directories. The loader verifies and streams the parts without creating
-another combined archive. Omit `--load` for verification only. If supplied as a
-single archive, use `docker image load -i SkillScriptBench_runtime_images.tar.gz`.
+The example uses two independently packaged images. To install other task
+environments, repeat `--task`, or use `--all` for the full benchmark:
 
-`verify` checks asset integrity; `doctor` checks dependencies. Candidates run
+```bash
+python scripts/fetch_assets.py --task d16-matlab-multiroute --plan
+python scripts/fetch_assets.py --all --load
+```
+
+`--plan` lists selected tasks, missing images, and maximum download size without
+writing files or downloading. Already installed exact image IDs are reused.
+When an independent asset is unavailable, the plan explicitly selects the
+complete 13.8 GB runtime archive. Allow additional space for Docker layers and
+jobs. Downloads are checksum-verified; existing cache files are preserved.
+Use a new `--dest` directory if a later release reports a conflicting cached file.
+
+The evaluator is installed at `assets/evaluator`. Check only the environments
+for the tasks you intend to run:
+
+```bash
+skillscriptbench evaluation --bundle assets/evaluator doctor \
+  --task ssb-deep60-case-18b5b153d97659d7 \
+  --task ssb-deep60-case-f8e43276eccd8365
+```
+
+Omit `--task` to check all environments. `verify` checks asset integrity;
+`doctor` checks dependencies. Candidates run
 in isolated containers with networking disabled. Keep credentials outside the
 execution environment. Images must match the pinned IDs and are not pulled
 automatically.
@@ -35,7 +52,7 @@ automatically.
 Supply the complete package and a new job directory:
 
 ```bash
-python evaluate.py --bundle ./evaluator --task TASK_ID \
+python evaluate.py --bundle assets/evaluator --task TASK_ID \
   --candidate /path/to/revised/package --output runs/evaluation
 ```
 
@@ -59,7 +76,7 @@ relative to the manifest, or absolute. Each run should contain the output of a
 separate attempt by your method; omit `run` for a single attempt.
 
 ```bash
-python evaluate.py --bundle ./evaluator --manifest candidates.json \
+python evaluate.py --bundle assets/evaluator --manifest candidates.json \
   --output runs/batch --workers 2
 ```
 
@@ -83,6 +100,19 @@ documentation and the candidate's scripts.
 
 For component-level debugging, the lower-level CLI provides `prepare`, `behavior`,
 `document`, and `score` subcommands. See `skillscriptbench evaluation --help`.
+
+## Inspect a task's checks
+
+```bash
+skillscriptbench evaluation --bundle assets/evaluator inspect \
+  ssb-deep60-case-18b5b153d97659d7 --format text
+```
+
+The view lists behavioral and documentation components, the selected task keys,
+checker files, and required images. Add `--files` for the complete file index.
+Read any listed logical file with `inspect TASK_ID --read-file LOGICAL_PATH`;
+the command verifies its checksum before printing it. The view never executes
+task code or copies checkers into candidate packages.
 
 ## Metrics
 
