@@ -7,6 +7,8 @@ node_modules/
 .env
 runs/
 assets/
+!docs/assets/
+!docs/assets/figures/
 evaluator/
 build/
 dist/

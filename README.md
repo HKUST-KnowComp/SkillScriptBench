@@ -2,9 +2,13 @@
 
 **Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown**
 
-[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Example](examples/README.md)
+[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Example](examples/README.md) · [Paper figures](docs/figures.md)
 
 SkillScriptBench evaluates repair and preservation of executable agent skill packages containing Markdown instructions and scripts. This repository contains the benchmark and evaluation tools.
+
+![SkillScriptBench overview: evaluation gaps, benchmark construction, and AST-guided documentation–script revision.](docs/assets/figures/figure1_overview.png)
+
+*Evaluation gaps, benchmark construction, and coordinated documentation–script revision.* [All five paper figures and vector PDFs](docs/figures.md).
 
 ## Dataset
 
@@ -73,7 +77,7 @@ download before execution. See [setup and task inspection](docs/evaluation.md).
 benchmark/   350 task inputs, metadata, source attribution, and license notices
 ssbench/     Task loader and scoring CLI
 evaluate.py  Single-task and batch evaluation
-docs/        Evaluation setup and usage
+docs/        Evaluation guide and paper figures
 scripts/     Runtime asset loader
 examples/    Two-task installation example
 distribution/ Pinned download catalog
