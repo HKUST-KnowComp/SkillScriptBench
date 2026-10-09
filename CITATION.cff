@@ -4,6 +4,7 @@ type: software
 title: "SkillScriptBench: Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown"
 version: 0.1.0
 url: "https://arxiv.org/abs/2610.04008"
+repository-code: "https://github.com/HKUST-KnowComp/SkillScriptBench"
 authors:
   - family-names: Liu
     given-names: Yuxuan

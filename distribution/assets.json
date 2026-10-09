@@ -1,6 +1,6 @@
 {
   "schema": "skillscriptbench-assets-v1",
-  "repo": "xuansenpa1/skillscriptbench-review",
+  "repo": "HKUST-KnowComp/SkillScriptBench",
   "evaluator": {
     "release": "benchmark-v0.1.0",
     "file": "SkillScriptBench_evaluator.tar.gz",
