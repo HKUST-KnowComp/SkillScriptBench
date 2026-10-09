@@ -2,13 +2,9 @@
 
 **Benchmarking Self-Evolution of Executable Agent Skill Packages Beyond Markdown**
 
-[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Example](examples/README.md) · [Paper figures](docs/figures.md)
+[Paper](https://arxiv.org/abs/2610.04008) · [Dataset](benchmark/README.md) · [Evaluation](docs/evaluation.md) · [Example](examples/README.md)
 
 SkillScriptBench evaluates repair and preservation of executable agent skill packages containing Markdown instructions and scripts. This repository contains the benchmark and evaluation tools.
-
-![SkillScriptBench overview: evaluation gaps, benchmark construction, and AST-guided documentation–script revision.](docs/assets/figures/figure1_overview.png)
-
-*Evaluation gaps, benchmark construction, and coordinated documentation–script revision.* [All five paper figures and vector PDFs](docs/figures.md).
 
 ## Dataset
 
@@ -18,6 +14,24 @@ SkillScriptBench evaluates repair and preservation of executable agent skill pac
 | Controlled Repair | 200 | 50 packages in Clean, Doc, Script, and Joint states |
 
 Each task provides a `REQUEST.md` and a complete input `package/`. Your method returns a revised package for evaluation.
+
+[![Application coverage of the 150 In-the-Wild repair tasks across six domains and 24 uses.](docs/assets/figures/figure2_application_coverage.png)](docs/assets/figures/figure2_application_coverage.pdf)
+
+*In-the-Wild Repair spans six application domains and 24 uses.*
+
+## AST-Guided Skill Revision
+
+AST-Guided Skill Revision links maintenance requirements to script structure and calling relationships to identify repair targets and behavior to preserve. It guides localized script edits, then aligns `SKILL.md` with the revised implementation.
+
+Across four LLM backbones, this additional revision stage raises mean repair success on the 300 faulty-package tasks from **54.8% to 76.7%** for Raw Package and from **48.8% to 76.5%** for CoEvoSkills.
+
+[![Paired outcomes before and after AST-guided revision for Raw Package and CoEvoSkills.](docs/assets/figures/figure4_repair_and_preservation.png)](docs/assets/figures/figure4_repair_and_preservation.pdf)
+
+*AST-guided revision corrects failures while preserving successful behavior. Outcomes are pooled across four backbones and three runs.*
+
+[![Raw Package and Raw Package + AST success rates across task characteristics for four models.](docs/assets/figures/figure5_task_characteristics.png)](docs/assets/figures/figure5_task_characteristics.pdf)
+
+*Repair success across structural partitions, repair categories, languages, and request localization. Light/dark bars compare Raw Package and Raw Package + AST; parentheses give task counts.*
 
 ## Load a task
 
