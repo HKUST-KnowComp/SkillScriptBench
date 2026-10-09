@@ -23,13 +23,25 @@ Each task provides a `REQUEST.md` and a complete input `package/`. Your method r
 
 AST-Guided Skill Revision links maintenance requirements to script structure and calling relationships to identify repair targets and behavior to preserve. It guides localized script edits, then aligns `SKILL.md` with the revised implementation.
 
+[![AST-Guided Skill Revision maps dry-run requirements to targeted script edits and aligns the documented command.](docs/assets/figures/figure3_ast_guided_revision.png)](docs/assets/figures/figure3_ast_guided_revision.pdf)
+
+*A dry-run example: numbered issues map through revision feedback to script edits and an aligned `SKILL.md` command.*
+
 Across four LLM backbones, this additional revision stage raises mean repair success on the 300 faulty-package tasks from **54.8% to 76.7%** for Raw Package and from **48.8% to 76.5%** for CoEvoSkills.
 
-[![Paired outcomes before and after AST-guided revision for Raw Package and CoEvoSkills.](docs/assets/figures/figure4_repair_and_preservation.png)](docs/assets/figures/figure4_repair_and_preservation.pdf)
+<p align="center">
+  <a href="docs/assets/figures/figure4_repair_and_preservation.pdf">
+    <img src="docs/assets/figures/figure4_repair_and_preservation.png" width="680" alt="Paired outcomes before and after AST-guided revision for Raw Package and CoEvoSkills.">
+  </a>
+</p>
 
 *AST-guided revision corrects failures while preserving successful behavior. Outcomes are pooled across four backbones and three runs.*
 
-[![Raw Package and Raw Package + AST success rates across task characteristics for four models.](docs/assets/figures/figure5_task_characteristics.png)](docs/assets/figures/figure5_task_characteristics.pdf)
+<p align="center">
+  <a href="docs/assets/figures/figure5_task_characteristics.pdf">
+    <img src="docs/assets/figures/figure5_task_characteristics.png" width="680" alt="Raw Package and Raw Package + AST success rates across task characteristics for four models.">
+  </a>
+</p>
 
 *Repair success across structural partitions, repair categories, languages, and request localization. Light/dark bars compare Raw Package and Raw Package + AST; parentheses give task counts.*
 
